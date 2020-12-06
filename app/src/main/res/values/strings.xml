@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">driverErte</string>
+    <string name="driver_erte">DRIVER ERTE</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="feeder">Feeder?</string>
+    <string name="login_here">Login here</string>
+    <string name="welcome">Welcome</string>
 </resources>
