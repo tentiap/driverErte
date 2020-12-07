@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     @FormUrlEncoded
-    @POST("loginPemesan")
+    @POST("loginSopir")
     Call<LoginSopir> loginSopirResponse(
             @Field("email") String email,
             @Field("password") String password

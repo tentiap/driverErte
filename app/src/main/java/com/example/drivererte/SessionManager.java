@@ -29,13 +29,26 @@ public class SessionManager {
         editor.putString(ID_USERS, sopir.getIdUsers());
         editor.putString(EMAIL, sopir.getEmail());
         editor.putString(NAMA, sopir.getNama());
+        editor.commit();
     }
+
+//    public HashMap<String,String> getSopirDetail(){
+//        HashMap<String,String> sopir = new HashMap<>();
+//        sopir.put(ID_USERS, sharedPreferences.getString(ID_USERS, null));
+//        sopir.put(EMAIL, sharedPreferences.getString(EMAIL, null));
+//        sopir.put(NAMA, sharedPreferences.getString(NAMA, null));
+//        return sopir;
+//    }
 
     public HashMap<String,String> getSopirDetail(){
         HashMap<String,String> sopir = new HashMap<>();
         sopir.put(ID_USERS, sharedPreferences.getString(ID_USERS, null));
         sopir.put(EMAIL, sharedPreferences.getString(EMAIL, null));
         sopir.put(NAMA, sharedPreferences.getString(NAMA, null));
+//        user.put(USERNAME, sharedPreferences.getString(USERNAME, null));
+//        user.put(KONTAK, sharedPreferences.getString(KONTAK, null));
+////        user.put(JENIS_KELAMIN, sharedPreferences.getString(JENIS_KELAMIN, null));
+//        user.put(ALAMAT, sharedPreferences.getString(ALAMAT, null));
         return sopir;
     }
 

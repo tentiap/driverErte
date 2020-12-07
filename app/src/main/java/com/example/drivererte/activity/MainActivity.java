@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bn_home:
                         return true;
                     case R.id.bn_my_order:
-//                        startActivity(new Intent(MainActivity.this, MyOrderActivity.class));
+                        startActivity(new Intent(MainActivity.this, HistoryActivity.class ));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.bn_account:
-//                        startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                        startActivity(new Intent(MainActivity.this, AccountActivity.class ));
                         overridePendingTransition(0,0);
                         return true;
                 }
