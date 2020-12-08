@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -55,8 +54,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 login(Email, Password);
                 break;
             case R.id.tv_login_feeder:
-//                Intent intentRegister = new Intent(LoginActivity.this, LoginFeederActivity.class);
-//                startActivity(intentRegister);
+                Intent intentLoginFeeder = new Intent(LoginActivity.this, LoginFeederActivity.class);
+                startActivity(intentLoginFeeder);
         }
     }
 

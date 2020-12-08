@@ -11,7 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.AccountActivity"></activity>
+        <activity android:name=".activity.MainActivityFeeder"></activity>
+        <activity
+            android:name=".activity.LoginFeederActivity"
+            android:parentActivityName=".activity.LoginActivity"
+            android:theme="@style/AppThemeActionBar1">
+            >
+        </activity>
+        <activity android:name=".activity.AccountActivity" />
         <activity android:name=".activity.HistoryActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>

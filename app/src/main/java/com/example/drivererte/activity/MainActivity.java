@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.bn_home:
                         return true;
-                    case R.id.bn_my_order:
+                    case R.id.bn_history:
                         startActivity(new Intent(MainActivity.this, HistoryActivity.class ));
                         overridePendingTransition(0,0);
                         return true;

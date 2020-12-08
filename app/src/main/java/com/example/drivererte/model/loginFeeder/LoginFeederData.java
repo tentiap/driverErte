@@ -87,15 +87,32 @@ public class LoginFeederData {
 	}
 
 	public String getIdKota(){
+//		return idKota;
+		switch (idKota){
+			case "K1":
+				idKota = "Bukittinggi";
+				break;
+			case "K2":
+				idKota = "Padang";
+				break;
+			case "K3":
+				idKota = "Pekanbaru";
+				break;
+		}
 		return idKota;
+
 	}
 
 	public void setJenisKelamin(int jenisKelamin){
 		this.jenisKelamin = jenisKelamin;
 	}
 
-	public int getJenisKelamin(){
-		return jenisKelamin;
+	public String getJenisKelamin(){
+		if (jenisKelamin == 1){
+			return "Laki-laki";
+		}else{
+			return "Perempuan";
+		}
 	}
 
 	public void setEmail(String email){

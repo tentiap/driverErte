@@ -105,8 +105,12 @@ public class LoginSopirData {
 		this.jenisKelamin = jenisKelamin;
 	}
 
-	public int getJenisKelamin(){
-		return jenisKelamin;
+	public String getJenisKelamin(){
+		if (jenisKelamin == 1){
+			return "Laki-laki";
+		}else{
+			return "Perempuan";
+		}
 	}
 
 	public void setEmail(String email){
