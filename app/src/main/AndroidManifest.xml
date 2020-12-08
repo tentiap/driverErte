@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.MainActivityFeeder"></activity>
+        <activity android:name=".activity.AccountActivityFeeder"></activity>
+        <activity android:name=".activity.HistoryActivityFeeder" />
+        <activity android:name=".activity.MainActivityFeeder" />
         <activity
             android:name=".activity.LoginFeederActivity"
             android:parentActivityName=".activity.LoginActivity"
