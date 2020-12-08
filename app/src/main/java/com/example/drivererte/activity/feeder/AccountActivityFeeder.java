@@ -1,4 +1,4 @@
-package com.example.drivererte.activity;
+package com.example.drivererte.activity.feeder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import com.example.drivererte.R;
 import com.example.drivererte.SessionManager;
+import com.example.drivererte.activity.sopir.HistoryActivity;
+import com.example.drivererte.activity.sopir.LoginActivity;
+import com.example.drivererte.activity.sopir.MainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AccountActivityFeeder extends AppCompatActivity {

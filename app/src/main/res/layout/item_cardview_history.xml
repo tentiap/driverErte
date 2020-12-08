@@ -17,20 +17,6 @@
         android:layout_height="120dp"
         android:padding="8dp">
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/tv_id_pesanan"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:layout_marginBottom="4dp"-->
-        <!--            android:layout_marginStart="150dp"-->
-        <!--            android:layout_marginRight="10dp"-->
-        <!--            android:layout_toEndOf="@+id/layout_tujuan"-->
-        <!--            android:layout_toRightOf="@+id/layout_tujuan"-->
-        <!--            android:gravity="right"-->
-        <!--            android:textSize="40sp"-->
-        <!--            tools:text="@array/id_pesanan"-->
-        <!--            android:layout_marginLeft="150dp" />-->
-
         <LinearLayout
             android:id="@+id/layout_tujuan"
             android:layout_width="wrap_content"
@@ -38,12 +24,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginLeft="6dp"
             android:orientation="horizontal">
-            <TextView
-                android:id="@+id/tv_id_pesanan"
-                android:layout_width="wrap_content"
-                android:text="Id Pesanan"
-                android:visibility="gone"
-                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/tv_item_asal"
                 android:layout_width="wrap_content"
@@ -76,7 +57,7 @@
             android:layout_below="@id/layout_tujuan"
             android:layout_marginTop="6dp"
             android:textSize="14sp"
-            tools:text="@array/jadwal_trip" />
+            tools:text="jadwal" />
 
         <TextView
             android:id="@+id/tv_item_jam"
@@ -89,7 +70,7 @@
             tools:text="13.00" />
 
         <TextView
-            android:id="@+id/tv_item_tanggal_pesan"
+            android:id="@+id/tv_item_id_trip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
@@ -99,7 +80,7 @@
             android:gravity="right"
             android:textSize="14sp"
             android:textStyle="italic"
-            tools:text="Ordered at : " />
+            tools:text="ID Trip : " />
 
 
     </RelativeLayout>

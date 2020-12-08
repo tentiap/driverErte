@@ -1,4 +1,4 @@
-package com.example.drivererte.activity;
+package com.example.drivererte.activity.feeder;
 
 import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
@@ -18,7 +18,6 @@ import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 import com.example.drivererte.model.loginFeeder.LoginFeeder;
 import com.example.drivererte.model.loginFeeder.LoginFeederData;
-import com.example.drivererte.model.loginSopir.LoginSopirData;
 
 public class LoginFeederActivity extends AppCompatActivity implements View.OnClickListener {
     EditText edtEmail, edtPassword;

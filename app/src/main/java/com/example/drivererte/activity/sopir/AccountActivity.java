@@ -1,4 +1,4 @@
-package com.example.drivererte.activity;
+package com.example.drivererte.activity.sopir;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

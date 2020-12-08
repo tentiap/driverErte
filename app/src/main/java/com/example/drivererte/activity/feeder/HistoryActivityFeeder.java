@@ -1,4 +1,4 @@
-package com.example.drivererte.activity;
+package com.example.drivererte.activity.feeder;
 
 import androidx.appcompat.app.AppCompatActivity;
 

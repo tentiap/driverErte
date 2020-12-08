@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MyOrderActivity">
+    tools:context=".activity.sopir.HistoryActivity">
 
     <!--    <TextView-->
     <!--        android:layout_width="wrap_content"-->
@@ -47,7 +47,7 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_history"
+                android:id="@+id/rv_trip_sopir"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/item_cardview_history" />
