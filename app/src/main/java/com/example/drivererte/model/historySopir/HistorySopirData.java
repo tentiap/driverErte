@@ -33,7 +33,11 @@ public class HistorySopirData {
 	}
 
 	public String getJadwal(){
-		return jadwal;
+		String[] tanggal = jadwal.split(" ");
+		String time =  tanggal[1];
+
+		String[] jam = time.split(":");
+		return jam[0]+":"+jam[1];
 	}
 
 	public void setUpdatedAt(String updatedAt){
@@ -49,8 +53,18 @@ public class HistorySopirData {
 	}
 
 	public String getIdKotaAsal(){
-		return idKotaAsal;
-	}
+		switch (idKotaAsal){
+			case "K1":
+				idKotaAsal = "Bukittinggi";
+				break;
+			case "K2":
+				idKotaAsal = "Padang";
+				break;
+			case "K3":
+				idKotaAsal = "Pekanbaru";
+				break;
+		}
+		return idKotaAsal;	}
 
 	public void setIdUsersOperator(String idUsersOperator){
 		this.idUsersOperator = idUsersOperator;
@@ -65,8 +79,18 @@ public class HistorySopirData {
 	}
 
 	public String getIdKotaTujuan(){
-		return idKotaTujuan;
-	}
+		switch (idKotaTujuan){
+			case "K1":
+				idKotaTujuan = "Bukittinggi";
+				break;
+			case "K2":
+				idKotaTujuan = "Padang";
+				break;
+			case "K3":
+				idKotaTujuan = "Pekanbaru";
+				break;
+		}
+		return idKotaTujuan;	}
 
 	public void setCreatedAt(String createdAt){
 		this.createdAt = createdAt;
@@ -91,4 +115,17 @@ public class HistorySopirData {
 	public String getIdUsersSopir(){
 		return idUsersSopir;
 	}
+
+    public String getTanggal() {
+		String[] date = jadwal.split(" ");
+		String tgl =  date[0];
+		String[] tanggal = tgl.split("-");
+
+		final String[] monthName = {"January", "February",
+				"March", "April", "May", "June", "July",
+				"August", "September", "October", "November",
+				"December"};
+		Integer months = Integer.parseInt(tanggal[1]);
+		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0];
+    }
 }
