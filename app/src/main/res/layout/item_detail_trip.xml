@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="4dp"
+    card_view:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/layout_detail_passenger"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_passenger_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Penumpang Satu"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_passenger_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Laki-laki"
+                android:layout_marginLeft="4dp"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_passenger_asal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_below="@id/layout_detail_passenger"
+            android:layout_marginTop="6dp"
+            android:textSize="14sp"
+            tools:text="Alamat asal di Padang" />
+
+        <TextView
+            android:id="@+id/tv_passenger_tujuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_below="@+id/tv_passenger_asal"
+            android:layout_marginTop="9dp"
+            android:textSize="14sp"
+            tools:text="alamat tujuan di Bukittinggi" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_passenger_kontak"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="6dp"-->
+<!--            android:layout_below="@id/tv_passenger_tujuan"-->
+<!--            android:layout_marginTop="6dp"-->
+<!--            android:textSize="14sp"-->
+<!--            tools:text="0897868675" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_passenger_biaya"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="6dp"-->
+<!--            android:layout_below="@id/tv_passenger_kontak"-->
+<!--            android:layout_marginTop="6dp"-->
+<!--            android:textSize="14sp"-->
+<!--            tools:text="-" />-->
+
+        <TextView
+            android:id="@+id/tv_passenger_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_below="@id/tv_passenger_tujuan"
+            android:layout_marginTop="6dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Status: " />
+
+        <LinearLayout
+            android:id="@+id/layout_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/tv_passenger_status"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_change"
+                android:background="@drawable/button_rounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/white_greyish"
+                android:text="Change Status"
+                android:layout_marginRight="5dp"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_call"
+                android:background="@drawable/button_rounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/white_greyish"
+                android:text="Call"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_below="@id/tv_passenger_status">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btn_call"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="5dp"-->
+<!--                android:background="@drawable/button_rounded"-->
+<!--                android:text="Edit Status"-->
+<!--                android:textColor="@color/white_greyish" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btn_edit"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:background="@drawable/button_rounded"-->
+<!--                android:text="Call"-->
+<!--                android:textColor="@color/white_greyish" />-->
+
+<!--        </LinearLayout>-->
+
+        <TextView
+            android:id="@+id/tv_passenger_seat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:gravity="right"
+            android:text="Seat 1"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,5 +1,6 @@
 package com.example.drivererte.api;
 
+import com.example.drivererte.model.detailTripSopir.DetailTripSopir;
 import com.example.drivererte.model.historySopir.HistorySopir;
 import com.example.drivererte.model.loginFeeder.LoginFeeder;
 import com.example.drivererte.model.loginSopir.LoginSopir;
@@ -36,5 +37,10 @@ public interface ApiInterface {
     @GET("historySopir/{id_users}")
     Call<HistorySopir> historySopirResponse(
             @Path("id_users") String id_users
+    );
+
+    @GET("detailtripSopir/{id_trip}")
+    Call<DetailTripSopir> detailTripSopirResponse(
+            @Path("id_trip") String id_trip
     );
 }

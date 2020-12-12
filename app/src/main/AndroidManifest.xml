@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.sopir.DetailTripSopir"></activity>
+        <activity android:name=".activity.sopir.DetailTripSopirActivity"></activity>
         <activity android:name=".activity.feeder.AccountActivityFeeder" />
         <activity android:name=".activity.feeder.HistoryActivityFeeder" />
         <activity android:name=".activity.feeder.MainActivityFeeder" />
