@@ -37,6 +37,10 @@ public class DetailTripSopirActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_trip_sopir);
 
+        rvDetailTripSopir = findViewById(R.id.rv_detail_trip_sopir);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh1);
+        progressBar = findViewById(R.id.progress_bar1);
+
         idTrip = getIntent().getStringExtra(EXTRA_TRIP_DATA);
         Toast.makeText(DetailTripSopirActivity.this, "ID Trip: " +idTrip, Toast.LENGTH_SHORT).show();
 
@@ -44,9 +48,7 @@ public class DetailTripSopirActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Detail Trip " + idTrip);
 
-        rvDetailTripSopir = findViewById(R.id.rv_detail_trip_sopir);
-        swipeRefreshLayout = findViewById(R.id.swipe_refresh1);
-        progressBar = findViewById(R.id.progress_bar1);
+        showTripDetail(idTrip);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -57,7 +59,6 @@ public class DetailTripSopirActivity extends AppCompatActivity {
             }
         });
 
-        showTripDetail(idTrip);
     }
 
     @Override
@@ -89,6 +90,7 @@ public class DetailTripSopirActivity extends AppCompatActivity {
                     rvDetailTripSopir.setAdapter(detailTripSopirAdapter);
                     detailTripSopirAdapter.notifyDataSetChanged();
                     progressBar.setVisibility(View.INVISIBLE);
+
                 }else {
                     String message = response.body().getMessage();
                     Toast.makeText(DetailTripSopirActivity.this, message, Toast.LENGTH_SHORT).show();

@@ -67,13 +67,13 @@ public class AccountActivityFeeder extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.bn_home:
-                        startActivity(new Intent(AccountActivityFeeder.this, MainActivity.class));
+                        startActivity(new Intent(AccountActivityFeeder.this, MainActivityFeeder.class));
                         overridePendingTransition(0,0);
                         return true;
-                    case R.id.bn_history:
-                        startActivity(new Intent(AccountActivityFeeder.this, HistoryActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
+//                    case R.id.bn_history:
+//                        startActivity(new Intent(AccountActivityFeeder.this, HistoryActivity.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
                     case R.id.bn_account:
                         return true;
                 }

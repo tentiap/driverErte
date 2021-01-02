@@ -2,6 +2,7 @@ package com.example.drivererte.activity.feeder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +15,9 @@ import com.example.drivererte.activity.sopir.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivityFeeder extends AppCompatActivity {
+    private RecyclerView rvTripFeeder;
 
-    SessionManager sessionManager;
+    SessionManager sessionManagerFeeder;
     TextView tvWelcome;
 
     @Override
@@ -23,13 +25,13 @@ public class MainActivityFeeder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feeder);
 
-        sessionManager = new SessionManager(MainActivityFeeder.this);
-        if (!sessionManager.isLoggedIn()){
+        sessionManagerFeeder = new SessionManager(MainActivityFeeder.this);
+        if (!sessionManagerFeeder.isLoggedIn()){
             moveToLogin();
         }
 
         tvWelcome = findViewById(R.id.tv_welcome_feeder);
-        tvWelcome.setText("Welcome, " +sessionManager.getFeederDetail().get(SessionManager.NAMA) + "!");
+        tvWelcome.setText("Welcome, " +sessionManagerFeeder.getFeederDetail().get(SessionManager.NAMA) + "!");
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.bn_home);
@@ -39,10 +41,10 @@ public class MainActivityFeeder extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.bn_home:
                         return true;
-                    case R.id.bn_history:
-                        startActivity(new Intent(MainActivityFeeder.this, HistoryActivityFeeder.class ));
-                        overridePendingTransition(0,0);
-                        return true;
+//                    case R.id.bn_history:
+//                        startActivity(new Intent(MainActivityFeeder.this, HistoryActivityFeeder.class ));
+//                        overridePendingTransition(0,0);
+//                        return true;
                     case R.id.bn_account:
                         startActivity(new Intent(MainActivityFeeder.this, AccountActivityFeeder.class ));
                         overridePendingTransition(0,0);

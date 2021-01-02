@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.drivererte.R;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
@@ -28,7 +29,9 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
     @Override
     public DetailTripSopirHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_detail_trip, parent, false);
-        return new DetailTripSopirHolder(view);
+        DetailTripSopirHolder holder = new DetailTripSopirHolder(view);
+        return holder;
+
     }
 
     @Override
@@ -41,6 +44,20 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
         holder.tvPassengerTujuan.setText(detailTripSopirData.getDetailTujuan());
         holder.tvPassengerSeat.setText(detailTripSopirData.getIdSeat());
         holder.tvPassengerStatus.setText(detailTripSopirData.getStatus());
+
+        holder.btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ctx, "You click button call ", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
