@@ -4,6 +4,7 @@ import com.example.drivererte.model.detailTripSopir.DetailTripSopir;
 import com.example.drivererte.model.historySopir.HistorySopir;
 import com.example.drivererte.model.loginFeeder.LoginFeeder;
 import com.example.drivererte.model.loginSopir.LoginSopir;
+import com.example.drivererte.model.tripFeeder.TripFeeder;
 import com.example.drivererte.model.tripSopir.TripSopir;
 
 import retrofit2.Call;
@@ -42,5 +43,10 @@ public interface ApiInterface {
     @GET("detailtripSopir/{id_trip}")
     Call<DetailTripSopir> detailTripSopirResponse(
             @Path("id_trip") String id_trip
+    );
+
+    @GET("tripFeeder/{id_users_feeder}")
+    Call<TripFeeder> tripFeederResponse(
+            @Path("id_users_feeder") String id_users_feeder
     );
 }
