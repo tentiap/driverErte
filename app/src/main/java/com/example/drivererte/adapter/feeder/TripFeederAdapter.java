@@ -11,8 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drivererte.R;
-import com.example.drivererte.adapter.sopir.TripAdapter;
-import com.example.drivererte.model.tripFeeder.TripFeeder;
+import com.example.drivererte.activity.feeder.ChangeStatusActivity;
 import com.example.drivererte.model.tripFeeder.TripFeederData;
 
 import java.util.List;
@@ -62,7 +61,11 @@ public class TripFeederAdapter extends RecyclerView.Adapter<TripFeederAdapter.Tr
         holder.btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx, "Button change", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ctx, "Button change " +"Id Trip = " +tripFeederData.getIdTrip()+ " Id Pesanan = " +tripFeederData.getIdPesanan(), Toast.LENGTH_SHORT).show();
+                Intent changeStatus = new Intent(ctx, ChangeStatusActivity.class);
+                changeStatus.putExtra(ChangeStatusActivity.EXTRA_CHANGE_STATUS, tripFeederData);
+                ctx.startActivity(changeStatus);
+
             }
         });
     }

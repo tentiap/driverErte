@@ -9,4 +9,12 @@
     <string name="welcome">Welcome</string>
     <string name="jalan">Jalan</string>
     <string name="feeder_erte">FEEDER ERTE</string>
+
+    <string-array name="array_status">
+        <item>Booking</item>
+        <item>Picked Up</item>
+        <item>On Going</item>
+        <item>Arrived</item>
+        <item>Cancelled</item>
+    </string-array>
 </resources>

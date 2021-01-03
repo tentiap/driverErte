@@ -1,8 +1,17 @@
 package com.example.drivererte.model.tripFeeder;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class TripFeederData {
+public class TripFeederData implements Parcelable {
+
+	@SerializedName("id_trip")
+	private String idTrip;
+
+	@SerializedName("id_pesanan")
+	private String idPesanan;
 
 	@SerializedName("kontak")
 	private String kontak;
@@ -31,12 +40,57 @@ public class TripFeederData {
 	@SerializedName("status")
 	private int status;
 
+	protected TripFeederData(Parcel in) {
+		idTrip = in.readString();
+		idPesanan = in.readString();
+		kontak = in.readString();
+		jadwal = in.readString();
+		noHp = in.readString();
+		idSeat = in.readString();
+		namaPenumpang = in.readString();
+		jenisKelamin = in.readString();
+		detailAsal = in.readString();
+		status = in.readInt();
+	}
+
+	public TripFeederData(){
+
+	}
+
+	public static final Creator<TripFeederData> CREATOR = new Creator<TripFeederData>() {
+		@Override
+		public TripFeederData createFromParcel(Parcel in) {
+			return new TripFeederData(in);
+		}
+
+		@Override
+		public TripFeederData[] newArray(int size) {
+			return new TripFeederData[size];
+		}
+	};
+
 	public void setKontak(String kontak){
 		this.kontak = kontak;
 	}
 
 	public String getKontak(){
 		return kontak;
+	}
+
+	public void setIdPesanan(String idPesanan){
+		this.idPesanan = idPesanan;
+	}
+
+	public String getIdPesanan(){
+		return idPesanan;
+	}
+
+	public void setIdTrip(String idTrip){
+		this.idTrip = idTrip;
+	}
+
+	public String getIdTrip(){
+		return idTrip;
 	}
 
 	public void setJadwal(String jadwal){
@@ -133,5 +187,24 @@ public class TripFeederData {
 		}else{
 			return "Status: Cancelled";
 		}
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel parcel, int i) {
+		parcel.writeString(idTrip);
+		parcel.writeString(idPesanan);
+		parcel.writeString(kontak);
+		parcel.writeString(jadwal);
+		parcel.writeString(noHp);
+		parcel.writeString(idSeat);
+		parcel.writeString(namaPenumpang);
+		parcel.writeString(jenisKelamin);
+		parcel.writeString(detailAsal);
+		parcel.writeInt(status);
 	}
 }

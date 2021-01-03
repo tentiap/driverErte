@@ -11,8 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.sopir.DetailTripSopirActivity"
-            android:theme="@style/AppThemeActionBar"></activity>
+        <activity
+            android:name=".activity.feeder.ChangeStatusActivity"
+            android:theme="@style/AppThemeActionBar"
+            ></activity>
+        <activity
+            android:name=".activity.sopir.DetailTripSopirActivity"
+            android:theme="@style/AppThemeActionBar" />
         <activity android:name=".activity.feeder.AccountActivityFeeder" />
         <activity android:name=".activity.feeder.HistoryActivityFeeder" />
         <activity android:name=".activity.feeder.MainActivityFeeder" />
@@ -33,8 +38,8 @@
         </activity>
         <activity android:name=".activity.sopir.LoginActivity" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
