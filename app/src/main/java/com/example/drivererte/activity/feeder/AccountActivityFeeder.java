@@ -12,13 +12,14 @@ import android.widget.TextView;
 
 import com.example.drivererte.R;
 import com.example.drivererte.SessionManager;
+import com.example.drivererte.SessionManagerFeeder;
 import com.example.drivererte.activity.sopir.HistoryActivity;
 import com.example.drivererte.activity.sopir.LoginActivity;
 import com.example.drivererte.activity.sopir.MainActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AccountActivityFeeder extends AppCompatActivity {
-    SessionManager sessionManager;
+    SessionManagerFeeder sessionManagerFeeder;
     TextView tvName, tvUsername, tvEmail, tvPhone, tvGender, tvWilayah;
     Button btnLogout;
     String name, username, email, phone, gender, wilayah;
@@ -28,7 +29,7 @@ public class AccountActivityFeeder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_feeder);
 
-        sessionManager = new SessionManager(AccountActivityFeeder.this);
+        sessionManagerFeeder = new SessionManagerFeeder(AccountActivityFeeder.this);
 
         tvName = findViewById(R.id.tv_name_feeder);
         tvUsername = findViewById(R.id.tv_username_feeder);
@@ -41,17 +42,17 @@ public class AccountActivityFeeder extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sessionManager.logoutSession();
+                sessionManagerFeeder.logoutSession();
                 moveToLogin();
             }
         });
 
-        name = sessionManager.getFeederDetail().get(SessionManager.NAMA);
-        email = sessionManager.getFeederDetail().get(SessionManager.EMAIL);
-        username = sessionManager.getFeederDetail().get(SessionManager.USERNAME);
-        phone = sessionManager.getFeederDetail().get(SessionManager.KONTAK);
-        gender = sessionManager.getFeederDetail().get(SessionManager.JENIS_KELAMIN);
-        wilayah = sessionManager.getFeederDetail().get(SessionManager.WILAYAH);
+        name = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.NAMA);
+        email = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.EMAIL);
+        username = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.USERNAME);
+        phone = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.KONTAK);
+        gender = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.JENIS_KELAMIN);
+        wilayah = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.WILAYAH);
 
         tvName.setText(name);
         tvUsername.setText(username);

@@ -46,17 +46,17 @@ public class SessionManager {
         editor.commit();
     }
 
-    public void createLoginFeederSession(LoginFeederData feeder){
-        editor.putBoolean(IS_LOGGED_IN, true);
-        editor.putString(ID_USERS, feeder.getIdUsers());
-        editor.putString(EMAIL, feeder.getEmail());
-        editor.putString(NAMA, feeder.getNama());
-        editor.putString(USERNAME, feeder.getUsername());
-        editor.putString(KONTAK, feeder.getKontak());
-        editor.putString(JENIS_KELAMIN, feeder.getJenisKelamin());
-        editor.putString(WILAYAH, feeder.getIdKota());
-        editor.commit();
-    }
+//    public void createLoginFeederSession(LoginFeederData feeder){
+//        editor.putBoolean(IS_LOGGED_IN, true);
+//        editor.putString(ID_USERS, feeder.getIdUsers());
+//        editor.putString(EMAIL, feeder.getEmail());
+//        editor.putString(NAMA, feeder.getNama());
+//        editor.putString(USERNAME, feeder.getUsername());
+//        editor.putString(KONTAK, feeder.getKontak());
+//        editor.putString(JENIS_KELAMIN, feeder.getJenisKelamin());
+//        editor.putString(WILAYAH, feeder.getIdKota());
+//        editor.commit();
+//    }
 
 //    public HashMap<String,String> getSopirDetail(){
 //        HashMap<String,String> sopir = new HashMap<>();
@@ -79,17 +79,17 @@ public class SessionManager {
         return sopir;
     }
 
-    public HashMap<String,String> getFeederDetail(){
-        HashMap<String,String> feeder = new HashMap<>();
-        feeder.put(ID_USERS, sharedPreferences.getString(ID_USERS, null));
-        feeder.put(EMAIL, sharedPreferences.getString(EMAIL, null));
-        feeder.put(NAMA, sharedPreferences.getString(NAMA, null));
-        feeder.put(USERNAME, sharedPreferences.getString(USERNAME, null));
-        feeder.put(KONTAK, sharedPreferences.getString(KONTAK, null));
-        feeder.put(JENIS_KELAMIN, sharedPreferences.getString(JENIS_KELAMIN, null));
-        feeder.put(WILAYAH, sharedPreferences.getString(WILAYAH, null));
-        return feeder;
-    }
+//    public HashMap<String,String> getFeederDetail(){
+//        HashMap<String,String> feeder = new HashMap<>();
+//        feeder.put(ID_USERS, sharedPreferences.getString(ID_USERS, null));
+//        feeder.put(EMAIL, sharedPreferences.getString(EMAIL, null));
+//        feeder.put(NAMA, sharedPreferences.getString(NAMA, null));
+//        feeder.put(USERNAME, sharedPreferences.getString(USERNAME, null));
+//        feeder.put(KONTAK, sharedPreferences.getString(KONTAK, null));
+//        feeder.put(JENIS_KELAMIN, sharedPreferences.getString(JENIS_KELAMIN, null));
+//        feeder.put(WILAYAH, sharedPreferences.getString(WILAYAH, null));
+//        return feeder;
+//    }
 
     public void logoutSession(){
         editor.clear();

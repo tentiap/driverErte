@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.drivererte.R;
 import com.example.drivererte.SessionManager;
+import com.example.drivererte.SessionManagerFeeder;
 import com.example.drivererte.activity.sopir.LoginActivity;
 import com.example.drivererte.activity.sopir.MainActivity;
 import com.example.drivererte.adapter.feeder.TripFeederAdapter;
@@ -37,7 +38,8 @@ public class MainActivityFeeder extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar progressBar;
-    SessionManager sessionManagerFeeder;
+//    SessionManager sessionManagerFeeder;
+    SessionManagerFeeder sessionManagerFeeder;
     TextView tvWelcome;
     String idUsersFeeder;
 
@@ -50,15 +52,15 @@ public class MainActivityFeeder extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipe_refresh3);
         progressBar = findViewById(R.id.progress_bar3);
 
-        sessionManagerFeeder = new SessionManager(MainActivityFeeder.this);
-        if (!sessionManagerFeeder.isLoggedIn()){
+        sessionManagerFeeder = new SessionManagerFeeder(MainActivityFeeder.this);
+        if (!sessionManagerFeeder.isLoggedInFeeder()){
             moveToLogin();
         }
 
         tvWelcome = findViewById(R.id.tv_welcome_feeder);
-        tvWelcome.setText("Welcome, " +sessionManagerFeeder.getFeederDetail().get(SessionManager.NAMA) + "!");
+        tvWelcome.setText("Welcome, " +sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.NAMA) + "!");
 
-        idUsersFeeder = sessionManagerFeeder.getFeederDetail().get(SessionManager.ID_USERS);
+        idUsersFeeder = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.ID_USERS);
         showTripFeeder(idUsersFeeder);
 
 
@@ -97,7 +99,7 @@ public class MainActivityFeeder extends AppCompatActivity {
 
     }
 
-    private void showTripFeeder(String idUsersFeeder) {
+    public void showTripFeeder(String idUsersFeeder) {
         progressBar.setVisibility(View.VISIBLE);
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);

@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.drivererte.R;
 import com.example.drivererte.SessionManager;
+import com.example.drivererte.SessionManagerFeeder;
+import com.example.drivererte.activity.feeder.MainActivityFeeder;
 import com.example.drivererte.adapter.sopir.TripAdapter;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar progressBar;
     SessionManager sessionManager;
+//   tr
     TextView tvWelcome;
     String idUser;
 
@@ -50,7 +53,12 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
 
         sessionManager = new SessionManager(MainActivity.this);
+//        sessionManagerFeeder = new SessionManagerFeeder(MainActivity.this);
+
         if (!sessionManager.isLoggedIn()){
+//            if (sessionManagerFeeder.isLoggedInFeeder()){
+//                sessionManagerFeeder.
+//            }
             moveToLogin();
         }
         idUser = sessionManager.getSopirDetail().get(SessionManager.ID_USERS);
@@ -102,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()) {
                     rvTripSopir.setLayoutManager(new LinearLayoutManager(MainActivity.this));
                     String message = response.body().getMessage();
-                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                     listData = response.body().getData();
 
                     final TripAdapter tripAdapter = new TripAdapter(MainActivity.this, listData);

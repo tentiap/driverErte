@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.drivererte.R;
 import com.example.drivererte.SessionManager;
+import com.example.drivererte.SessionManagerFeeder;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 import com.example.drivererte.model.loginFeeder.LoginFeeder;
@@ -24,7 +25,8 @@ public class LoginFeederActivity extends AppCompatActivity implements View.OnCli
     Button btnLogin;
     String Email, Password;
     ApiInterface apiInterface;
-    SessionManager sessionManager;
+//    SessionManager sessionManager;
+    SessionManagerFeeder sessionManagerFeeder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +55,9 @@ public class LoginFeederActivity extends AppCompatActivity implements View.OnCli
             public void onResponse(Call<LoginFeeder> call, Response<LoginFeeder> response) {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()){
 
-                    sessionManager = new SessionManager(LoginFeederActivity.this);
+                    sessionManagerFeeder = new SessionManagerFeeder(LoginFeederActivity.this);
                     LoginFeederData loginFeederData = response.body().getLoginFeederData();
-                    sessionManager.createLoginFeederSession(loginFeederData);
+                    sessionManagerFeeder.createLoginFeederSession(loginFeederData);
 
                     Toast.makeText(LoginFeederActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intentLogin = new Intent(LoginFeederActivity.this, MainActivityFeeder.class);

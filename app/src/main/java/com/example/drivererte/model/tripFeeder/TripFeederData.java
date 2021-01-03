@@ -44,7 +44,21 @@ public class TripFeederData {
 	}
 
 	public String getJadwal(){
-		return "Jadwal: " +jadwal;
+		String[] date = jadwal.split(" ");
+		String tgl =  date[0];
+		String[] tanggal = tgl.split("-");
+
+		final String[] monthName = {"January", "February",
+				"March", "April", "May", "June", "July",
+				"August", "September", "October", "November",
+				"December"};
+		Integer months = Integer.parseInt(tanggal[1]);
+
+		String[] tanggal1 = jadwal.split(" ");
+		String time =  tanggal1[1];
+
+		String[] jam = time.split(":");
+		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0] +" - "+ jam[0]+":"+jam[1] ;
 	}
 
 	public void setNoHp(String noHp){

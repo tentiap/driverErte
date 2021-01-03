@@ -1,6 +1,8 @@
 package com.example.drivererte.adapter.feeder;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +47,15 @@ public class TripFeederAdapter extends RecyclerView.Adapter<TripFeederAdapter.Tr
         holder.tvAlamat.setText(tripFeederData.getDetailAsal());
         holder.tvBiaya.setText(tripFeederData.getBiayaTambahan());
         holder.tvStatus.setText(tripFeederData.getStatus());
+        holder.tvJadwal.setText(tripFeederData.getJadwal());
 
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(ctx, "Button Call", Toast.LENGTH_SHORT).show();
+                Uri phoneNumber = Uri.parse("tel:" + tripFeederData.getNoHp());
+                Intent callPassenger = new Intent(Intent.ACTION_DIAL, phoneNumber);
+                ctx.startActivity(callPassenger);
             }
         });
 
@@ -67,18 +73,19 @@ public class TripFeederAdapter extends RecyclerView.Adapter<TripFeederAdapter.Tr
     }
 
     public class TripFeederHolder extends RecyclerView.ViewHolder {
-        TextView tvNama, tvJenisKelamin, tvIdSeat, tvAlamat, tvBiaya, tvStatus;
+        TextView tvNama, tvJenisKelamin, tvIdSeat, tvAlamat, tvBiaya, tvStatus, tvJadwal;
         Button btnCall, btnChange;
 
         public TripFeederHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvNama = itemView.findViewById(R.id.tv_name_feeder);
-            tvJenisKelamin = itemView.findViewById(R.id.tv_gender_feeder);
+            tvNama = itemView.findViewById(R.id.tv_passenger_name_feeder);
+            tvJenisKelamin = itemView.findViewById(R.id.tv_passenger_gender_feeder);
             tvIdSeat = itemView.findViewById(R.id.tv_passenger_seat_feeder);
             tvAlamat = itemView.findViewById(R.id.tv_passenger_asal_feeder);
             tvBiaya = itemView.findViewById(R.id.tv_biaya_feeder);
             tvStatus = itemView.findViewById(R.id.tv_passenger_status_feeder);
+            tvJadwal = itemView.findViewById(R.id.tv_jadwal_feeder);
             btnCall = itemView.findViewById(R.id.btn_call_feeder);
             btnChange = itemView.findViewById(R.id.btn_change_feeder);
         }
