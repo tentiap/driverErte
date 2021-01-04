@@ -1,14 +1,23 @@
 package com.example.drivererte.model.detailTripSopir;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class DetailTripSopirData {
+public class DetailTripSopirData implements Parcelable {
 
 	@SerializedName("kontak_pemesan")
 	private String kontakPemesan;
 
 	@SerializedName("no_hp")
 	private Object noHp;
+
+	@SerializedName("id_trip")
+	private String idTrip;
+
+	@SerializedName("id_pesanan")
+	private String idPesanan;
 
 	@SerializedName("detail_tujuan")
 	private String detailTujuan;
@@ -31,6 +40,34 @@ public class DetailTripSopirData {
 	@SerializedName("status")
 	private int status;
 
+	public DetailTripSopirData(){
+
+	}
+
+	protected DetailTripSopirData(Parcel in) {
+		kontakPemesan = in.readString();
+		idTrip = in.readString();
+		idPesanan = in.readString();
+		detailTujuan = in.readString();
+		idSeat = in.readString();
+		namaPenumpang = in.readString();
+		jenisKelamin = in.readString();
+		detailAsal = in.readString();
+		status = in.readInt();
+	}
+
+	public static final Creator<DetailTripSopirData> CREATOR = new Creator<DetailTripSopirData>() {
+		@Override
+		public DetailTripSopirData createFromParcel(Parcel in) {
+			return new DetailTripSopirData(in);
+		}
+
+		@Override
+		public DetailTripSopirData[] newArray(int size) {
+			return new DetailTripSopirData[size];
+		}
+	};
+
 	public void setKontakPemesan(String kontakPemesan){
 		this.kontakPemesan = kontakPemesan;
 	}
@@ -49,6 +86,22 @@ public class DetailTripSopirData {
 		}else{
 			return noHp;
 		}
+	}
+
+	public void setIdPesanan(String idPesanan){
+		this.idPesanan = idPesanan;
+	}
+
+	public String getIdPesanan(){
+		return idPesanan;
+	}
+
+	public void setIdTrip(String idTrip){
+		this.idTrip = idTrip;
+	}
+
+	public String getIdTrip(){
+		return idTrip;
 	}
 
 	public void setDetailTujuan(String detailTujuan){
@@ -117,5 +170,23 @@ public class DetailTripSopirData {
 		}else{
 			return "Status: Cancelled";
 		}
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel parcel, int i) {
+		parcel.writeString(kontakPemesan);
+		parcel.writeString(idTrip);
+		parcel.writeString(idPesanan);
+		parcel.writeString(detailTujuan);
+		parcel.writeString(idSeat);
+		parcel.writeString(namaPenumpang);
+		parcel.writeString(jenisKelamin);
+		parcel.writeString(detailAsal);
+		parcel.writeInt(status);
 	}
 }

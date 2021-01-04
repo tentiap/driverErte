@@ -1,6 +1,8 @@
 package com.example.drivererte.adapter.sopir;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drivererte.R;
+import com.example.drivererte.activity.feeder.ChangeStatusActivity;
+import com.example.drivererte.activity.sopir.ChangeStatusActivitySopir;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
 
 import java.util.List;
@@ -48,7 +52,10 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
         holder.btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
+                Intent changeStatus = new Intent(ctx, ChangeStatusActivity.class);
+                changeStatus.putExtra(ChangeStatusActivitySopir.EXTRA_CHANGE_STATUS_SOPIR, detailTripSopirData);
+                ctx.startActivity(changeStatus);
             }
         });
 
@@ -56,6 +63,9 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
             @Override
             public void onClick(View view) {
                 Toast.makeText(ctx, "You click button call ", Toast.LENGTH_SHORT).show();
+                Uri phoneNumber = Uri.parse("tel:" + detailTripSopirData.getNoHp());
+                Intent callPassenger = new Intent(Intent.ACTION_DIAL, phoneNumber);
+                ctx.startActivity(callPassenger);
             }
         });
     }

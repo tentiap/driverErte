@@ -3,7 +3,7 @@ package com.example.drivererte.model.detailTripSopir;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class DetailTripSopir{
+public class DetailTripSopir {
 
 	@SerializedName("data")
 	private List<DetailTripSopirData> data;
