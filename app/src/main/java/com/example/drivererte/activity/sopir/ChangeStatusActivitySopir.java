@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drivererte.R;
-import com.example.drivererte.activity.feeder.ChangeStatusActivity;
 import com.example.drivererte.activity.feeder.MainActivityFeeder;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
@@ -87,7 +86,7 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
             public void onResponse(Call<ChangeStatus> call, Response<ChangeStatus> response) {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()) {
                     Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intentBack = new Intent(ChangeStatusActivitySopir.this, MainActivityFeeder.class);
+                    Intent intentBack = new Intent(ChangeStatusActivitySopir.this, MainActivity.class);
                     startActivity(intentBack);
                 } else {
                     Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();

@@ -53,9 +53,9 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
             @Override
             public void onClick(View view) {
 //                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
-                Intent changeStatus = new Intent(ctx, ChangeStatusActivity.class);
-                changeStatus.putExtra(ChangeStatusActivitySopir.EXTRA_CHANGE_STATUS_SOPIR, detailTripSopirData);
-                ctx.startActivity(changeStatus);
+                Intent changeStatusSopir = new Intent(ctx, ChangeStatusActivitySopir.class);
+                changeStatusSopir.putExtra(ChangeStatusActivitySopir.EXTRA_CHANGE_STATUS_SOPIR, detailTripSopirData);
+                ctx.startActivity(changeStatusSopir);
             }
         });
 
