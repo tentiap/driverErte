@@ -57,6 +57,6 @@ public interface ApiInterface {
             @Field("id_pesanan") String id_pesanan,
             @Field("id_trip") String id_trip,
             @Field("id_seat") String id_seat,
-            @Field("status") String status
+            @Field("status") Integer status
     );
 }

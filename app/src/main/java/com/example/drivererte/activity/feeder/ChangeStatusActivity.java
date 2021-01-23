@@ -25,7 +25,8 @@ public class ChangeStatusActivity extends AppCompatActivity {
     TextView tvName;
     Spinner spinnerStatus;
     Button btnUpdate;
-    String Nama, status, Selected, idPesanan, idTrip, idSeat;
+    String Nama, Selected, idPesanan, idTrip, idSeat;
+    Integer status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
 
         TripFeederData tripFeederData = getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS);
         Nama = tripFeederData.getNamaPenumpang();
-        status = tripFeederData.getStatus();
+        status = Integer.valueOf(tripFeederData.getStatus());
         idPesanan = tripFeederData.getIdPesanan();
         idTrip = tripFeederData.getIdTrip();
         idSeat = tripFeederData.getIdSeat();
@@ -55,19 +56,19 @@ public class ChangeStatusActivity extends AppCompatActivity {
                 Selected = spinnerStatus.getSelectedItem().toString();
                 switch (Selected){
                     case "Booking":
-                        status = "1";
+                        status = 1;
                         break;
                     case "Picked Up":
-                        status = "2";
+                        status = 2;
                         break;
                     case "On Going":
-                        status = "3";
+                        status = 3;
                         break;
                     case "Arrived":
-                        status = "4";
+                        status = 4;
                         break;
                     case "Cancelled":
-                        status = "5";
+                        status = 5;
                         break;
                 }
                 Toast.makeText(ChangeStatusActivity.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
@@ -79,7 +80,7 @@ public class ChangeStatusActivity extends AppCompatActivity {
         });
     }
 
-    private void changeStatus(String idPesanan, String idTrip, String idSeat, String status) {
+    private void changeStatus(String idPesanan, String idTrip, String idSeat, Integer status) {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(idPesanan, idTrip, idSeat, status);
         changeStatusCall.enqueue(new Callback<ChangeStatus>() {

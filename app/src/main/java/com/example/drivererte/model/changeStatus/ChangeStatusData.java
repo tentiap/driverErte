@@ -44,7 +44,7 @@ public class ChangeStatusData {
 	private int idDetailPesanan;
 
 	@SerializedName("status")
-	private String status;
+	private int status;
 
 	public void setIdUsersFeeder(String idUsersFeeder){
 		this.idUsersFeeder = idUsersFeeder;
@@ -150,11 +150,11 @@ public class ChangeStatusData {
 		return idDetailPesanan;
 	}
 
-	public void setStatus(String status){
+	public void setStatus(int status){
 		this.status = status;
 	}
 
-	public String getStatus(){
+	public int getStatus(){
 		return status;
 	}
 }
