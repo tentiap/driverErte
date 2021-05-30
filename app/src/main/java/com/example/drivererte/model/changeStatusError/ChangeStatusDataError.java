@@ -1,8 +1,8 @@
-package com.example.drivererte.model.changeStatus;
+package com.example.drivererte.model.changeStatusError;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ChangeStatusData {
+public class ChangeStatusDataError {
 
 	@SerializedName("id_users_feeder")
 	private String idUsersFeeder;

@@ -1,11 +1,11 @@
-package com.example.drivererte.model.changeStatus;
+package com.example.drivererte.model.changeStatusError;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ChangeStatus{
+public class ChangeStatusError {
 
 	@SerializedName("data")
-	private ChangeStatusData data;
+	private ChangeStatusDataError data;
 
 	@SerializedName("message")
 	private String message;
@@ -13,11 +13,11 @@ public class ChangeStatus{
 	@SerializedName("status")
 	private boolean status;
 
-	public void setData(ChangeStatusData data){
+	public void setData(ChangeStatusDataError data){
 		this.data = data;
 	}
 
-	public ChangeStatusData getData(){
+	public ChangeStatusDataError getData(){
 		return data;
 	}
 

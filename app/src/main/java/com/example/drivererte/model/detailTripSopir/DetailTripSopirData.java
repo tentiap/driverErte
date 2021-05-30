@@ -160,15 +160,15 @@ public class DetailTripSopirData implements Parcelable {
 
 	public String getStatus(){
 		if (status == 1){
-			return "Status: Booking ";
+			return "Booking ";
 		}else if (status == 2){
-			return "Status: Picked Up";
+			return "Picked Up";
 		}else if (status == 3){
-			return "Status: On Going";
+			return "On Going";
 		}else if (status == 4){
-			return "Status: Arrived";
+			return "Arrived";
 		}else{
-			return "Status: Cancelled";
+			return "Cancelled";
 		}
 	}
 

@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.sopir.ChangeStatusActivitySopir"
+        <activity android:name=".activity.sopir.ChangeStatusActivitySopirError"
                   android:theme="@style/AppThemeActionBar"></activity>
         <activity
             android:name=".activity.feeder.ChangeStatusActivity"

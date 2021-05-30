@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.sopir.ChangeStatusActivitySopir">
+    tools:context=".activity.sopir.ChangeStatusActivitySopirError">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,8 +69,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:id="@+id/spinner_status_sopir"
-                    android:textSize="18sp"
-                    android:entries="@array/array_status"/>
+                    android:entries="@array/array_status"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
