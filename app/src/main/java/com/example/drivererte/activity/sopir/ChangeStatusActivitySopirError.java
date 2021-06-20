@@ -18,6 +18,7 @@ import com.example.drivererte.R;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 //import com.example.drivererte.model.changeStatusError.ChangeStatusError;
+import com.example.drivererte.model.changeStatus.ChangeStatus;
 import com.example.drivererte.model.changeStatusError.ChangeStatusError;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
 
@@ -30,8 +31,8 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
     Spinner spinnerStatus;
     Button btnUpdate;
     String Nama;
-    Integer status;
-    String Selected, idPesanan, idTrip, idSeat, statusDiSpinner;
+    int status;
+    String Selected, idPesanan, idTrip, idSeat, statusDiSpinner, idPesananNew, idTripNew, idSeatNew; ;
 //    String idPesanan;
 //    String idTrip;
 //    String idSeat;
@@ -44,7 +45,7 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
 
         DetailTripSopirData detailTripSopirData = getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS_SOPIR);
         Nama = detailTripSopirData.getNamaPenumpang();
-        statusDiSpinner = detailTripSopirData.getStatus(); //Karena status tidak tau di spinner, jadinya ndak dipakai
+        statusDiSpinner = detailTripSopirData.getStatus();
         idPesanan = detailTripSopirData.getIdPesanan();
         idTrip = detailTripSopirData.getIdTrip();
         idSeat = detailTripSopirData.getIdSeat();
@@ -80,7 +81,9 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
             }
         }
 
-        spinnerStatus.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,arrayList));
+
+
+        spinnerStatus.setAdapter(new ArrayAdapter<>(ChangeStatusActivitySopirError.this, android.R.layout.simple_spinner_dropdown_item,arrayList));
         spinnerStatus.setSelection(getIndex(spinnerStatus, statusDiSpinner));
 //        Toast.makeText(this, statusDiSpinner, Toast.LENGTH_SHORT).show();
 //        spinnerStatus.setSelection(Integer.parseInt(statusDiSpinner));
@@ -89,8 +92,12 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+//                status = 2;
+//                changeStatus();
+
                 Selected = spinnerStatus.getSelectedItem().toString();
+//                Toast.makeText(ChangeStatusActivitySopirError.this, Selected, Toast.LENGTH_SHORT).show();
                 switch (Selected){
                     case "Booking":
                         status = 1;
@@ -108,9 +115,42 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
                         status = 5;
                         break;
                 }
-//                Toast.makeText(ChangeStatusActivitySopir.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
-                changeStatus(idPesanan, idTrip, idSeat, status);
+//                Toast.makeText(ChangeStatusActivitySopirError.this, "Status = " +status, Toast.LENGTH_SHORT).show();
+                idPesananNew = idPesanan;
+                idSeatNew = idSeat;
+                idTripNew = idTrip;
+//                Toast.makeText(ChangeStatusActivitySopirError.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
+                changeStatus();
             }
+
+//            @Override
+//            public void onClick(View view) {
+//                Selected = spinnerStatus.getSelectedItem().toString();
+////                Toast.makeText(ChangeStatusActivitySopirError.this, Selected, Toast.LENGTH_SHORT).show();
+//                switch (Selected){
+//                    case "Booking":
+//                        status = 1;
+//                        break;
+//                    case "Picked Up":
+//                        status = 2;
+//                        break;
+//                    case "On Going":
+//                        status = 3;
+//                        break;
+//                    case "Arrived":
+//                        status = 4;
+//                        break;
+//                    case "Cancelled":
+//                        status = 5;
+//                        break;
+//                }
+////                Toast.makeText(ChangeStatusActivitySopirError.this, "Status = " +status, Toast.LENGTH_SHORT).show();
+//
+////                Toast.makeText(ChangeStatusActivitySopirError.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
+//                changeStatus();
+//
+//            }
+
         });
     }
 
@@ -123,19 +163,24 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
         return 0;
     }
 
-    private void changeStatus(String idPesanan, String idTrip, String idSeat, Integer status) {
+    private void changeStatus() {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<ChangeStatusError> changeStatusCall = apiInterface.changeStatusResponse(idPesanan, idTrip, idSeat, status);
-        changeStatusCall.enqueue(new Callback<ChangeStatusError>() {
+        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(idPesananNew, idTripNew, idSeatNew, status);
+//        Toast.makeText(this, "id = " +idPesanan+ ", idTrip = " +idTrip+ ", idSeat = " +idSeat+ ", Status = " +status, Toast.LENGTH_LONG).show();
+        changeStatusCall.enqueue(new Callback<ChangeStatus>() {
             @Override
-            public void onResponse(Call<ChangeStatusError> call, Response<ChangeStatusError> response) {
+            public void onResponse(Call<ChangeStatus> call, Response<ChangeStatus> response) {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()) {
-                    Toast.makeText(ChangeStatusActivitySopirError.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeStatusActivitySopirError.this, "Woyy, bisaaa", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ChangeStatusActivitySopirError.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intentBack = new Intent(ChangeStatusActivitySopirError.this, MainActivity.class);
                     startActivity(intentBack);
-                } else {
-//                    Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(ChangeStatusActivitySopirError.this, "Upss data tidak ditemukan", Toast.LENGTH_SHORT).show();
+                    finish();
+                }else{
+//                    Toast.makeText(ChangeStatusActivitySopirError.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ChangeStatusActivitySopirError.this, "Upss data tidak ditemukan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeStatusActivitySopirError.this, "Kok ndak bisa???", Toast.LENGTH_SHORT).show();
+
 
                 }
 //                Toast.makeText(ChangeStatusActivitySopir.this, "Id Pesanan = " +idPesanan+ " | id Trip " +idTrip+ "Id Seat = " +idSeat+ " | Status " +status, Toast.LENGTH_SHORT).show();
@@ -143,7 +188,7 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ChangeStatusError> call, Throwable t) {
+            public void onFailure(Call<ChangeStatus> call, Throwable t) {
                 Toast.makeText(ChangeStatusActivitySopirError.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 //                Toast.makeText(ChangeStatusActivitySopir.this, "Upss data tidak ditemukan", Toast.LENGTH_SHORT).show();
 

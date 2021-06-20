@@ -42,7 +42,7 @@ public class DetailTripSopirActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar1);
 
         idTrip = getIntent().getStringExtra(EXTRA_TRIP_DATA);
-        Toast.makeText(DetailTripSopirActivity.this, "ID Trip: " +idTrip, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(DetailTripSopirActivity.this, "ID Trip: " +idTrip, Toast.LENGTH_SHORT).show();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

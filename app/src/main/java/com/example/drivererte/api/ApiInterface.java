@@ -1,6 +1,7 @@
 package com.example.drivererte.api;
 
 //import com.example.drivererte.model.changeStatusError.ChangeStatusError;
+import com.example.drivererte.model.changeStatus.ChangeStatus;
 import com.example.drivererte.model.changeStatusError.ChangeStatusError;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopir;
 import com.example.drivererte.model.historySopir.HistorySopir;
@@ -54,10 +55,10 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("changeStatus")
-    Call<ChangeStatusError> changeStatusResponse(
+    Call<ChangeStatus> changeStatusResponse(
             @Field("id_pesanan") String id_pesanan,
             @Field("id_trip") String id_trip,
             @Field("id_seat") String id_seat,
-            @Field("status") Integer status
+            @Field("status") int status
     );
 }

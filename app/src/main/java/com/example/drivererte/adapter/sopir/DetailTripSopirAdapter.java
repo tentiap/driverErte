@@ -1,6 +1,7 @@
 package com.example.drivererte.adapter.sopir;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopirAdapter.DetailTripSopirHolder> {
@@ -51,7 +53,7 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
         holder.btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
                 Intent changeStatusSopir = new Intent(ctx, ChangeStatusActivitySopirError.class);
                 changeStatusSopir.putExtra(ChangeStatusActivitySopirError.EXTRA_CHANGE_STATUS_SOPIR, detailTripSopirData);
                 ctx.startActivity(changeStatusSopir);
@@ -67,6 +69,7 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
                 ctx.startActivity(callPassenger);
             }
         });
+
     }
 
     @Override
@@ -90,6 +93,49 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
             tvPassengerStatus = itemView.findViewById(R.id.tv_passenger_status);
             btnCall = itemView.findViewById(R.id.btn_call);
             btnChange = itemView.findViewById(R.id.btn_change);
+
+//            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    AlertDialog.Builder dialogPesan = new AlertDialog.Builder(ctx);
+//                    dialogPesan.setMessage("Choose what to do");
+//                    dialogPesan.setCancelable(true);
+//
+//                    dialogPesan.setPositiveButton("Call", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            callPassenger();
+//                            dialog.dismiss();
+//                        }
+//                    });
+//
+//                    dialogPesan.setNegativeButton("Change Status", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            changeStatus();
+//                            dialog.dismiss();
+//
+//                        }
+//                    });
+//
+//                    dialogPesan.show();
+//
+//                    return false;
+//                }
+//            });
+
+
         }
     }
+
+//    private void changeStatus() {
+//        Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
+//
+//    }
+//
+//    private void callPassenger() {
+//        Toast.makeText(ctx, "You click button call ", Toast.LENGTH_SHORT).show();
+//    }
+
+
 }

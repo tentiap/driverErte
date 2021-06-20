@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent detailHistoryIntent = new Intent(MainActivity.this, DetailTripSopirActivity.class);
                             detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, data.getIdTrip());
                             startActivity(detailHistoryIntent);
-                            Toast.makeText(MainActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(MainActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
                         }
                     });
 
