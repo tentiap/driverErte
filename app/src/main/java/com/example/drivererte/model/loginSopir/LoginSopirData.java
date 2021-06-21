@@ -29,7 +29,7 @@ public class LoginSopirData {
 	private String createdAt;
 
 	@SerializedName("jenis_kelamin")
-	private int jenisKelamin;
+	private String jenisKelamin;
 
 	@SerializedName("email")
 	private String email;
@@ -101,16 +101,17 @@ public class LoginSopirData {
 		return createdAt;
 	}
 
-	public void setJenisKelamin(int jenisKelamin){
+	public void setJenisKelamin(String jenisKelamin){
 		this.jenisKelamin = jenisKelamin;
 	}
 
 	public String getJenisKelamin(){
-		if (jenisKelamin == 1){
-			return "Laki-laki";
-		}else{
-			return "Perempuan";
-		}
+//		if (jenisKelamin == 1){
+//			return "Laki-laki";
+//		}else{
+//			return "Perempuan";
+//		}
+		return jenisKelamin;
 	}
 
 	public void setEmail(String email){
