@@ -32,7 +32,7 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
     Button btnUpdate;
     String Nama;
     int status;
-    String Selected, idPesanan, idTrip, idSeat, statusDiSpinner, idPesananNew, idTripNew, idSeatNew; ;
+    String Selected, idPesanan, idTrip, seat, statusDiSpinner, idSeat; ;
 //    String idPesanan;
 //    String idTrip;
 //    String idSeat;
@@ -48,7 +48,10 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
         statusDiSpinner = detailTripSopirData.getStatus();
         idPesanan = detailTripSopirData.getIdPesanan();
         idTrip = detailTripSopirData.getIdTrip();
-        idSeat = detailTripSopirData.getIdSeat();
+        seat = detailTripSopirData.getIdSeat();
+
+        String[] seatString = seat.split(" ");
+        idSeat = seatString[1];
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -116,10 +119,13 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
                         break;
                 }
 //                Toast.makeText(ChangeStatusActivitySopirError.this, "Status = " +status, Toast.LENGTH_SHORT).show();
-                idPesananNew = idPesanan;
-                idSeatNew = idSeat;
-                idTripNew = idTrip;
-//                Toast.makeText(ChangeStatusActivitySopirError.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
+//                idPesananNew = idPesanan;
+//                idSeatNew = idSeat;
+//                idTripNew = idTrip;
+
+//                Toast.makeText(ChangeStatusActivitySopirError.this, idSeat, Toast.LENGTH_SHORT).show();
+
+//                Toast.makeText(ChangeStatusActivitySopirError.this, " " +idSeat+ " " +status+ " "+idPesanan+ " "+idTrip, Toast.LENGTH_LONG).show();
                 changeStatus();
             }
 
@@ -165,7 +171,7 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
 
     private void changeStatus() {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(idPesananNew, idTripNew, idSeatNew, status);
+        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(idPesanan, idTrip, idSeat, status);
 //        Toast.makeText(this, "id = " +idPesanan+ ", idTrip = " +idTrip+ ", idSeat = " +idSeat+ ", Status = " +status, Toast.LENGTH_LONG).show();
         changeStatusCall.enqueue(new Callback<ChangeStatus>() {
             @Override
@@ -195,6 +201,10 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
 
             }
         });
+
+//                        Toast.makeText(ChangeStatusActivitySopirError.this, " " +idSeat+ " " +status+ " "+idPesanan+ " "+idTrip, Toast.LENGTH_LONG).show();
+
+
     }
 
     @Override
