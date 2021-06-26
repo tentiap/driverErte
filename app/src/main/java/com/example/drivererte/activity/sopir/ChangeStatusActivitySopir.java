@@ -19,20 +19,18 @@ import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 //import com.example.drivererte.model.changeStatusError.ChangeStatusError;
 import com.example.drivererte.model.changeStatus.ChangeStatus;
-import com.example.drivererte.model.changeStatusError.ChangeStatusError;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
 
 import java.util.ArrayList;
 
-public class ChangeStatusActivitySopirError extends AppCompatActivity {
+public class ChangeStatusActivitySopir extends AppCompatActivity {
     public static final String EXTRA_CHANGE_STATUS_SOPIR = "extra_change_status_sopir";
 
     TextView tvName;
     Spinner spinnerStatus;
     Button btnUpdate;
-    String Nama;
     int status;
-    String Selected, idPesanan, idTrip, seat, statusDiSpinner, idSeat; ;
+    String Nama, Selected, idPesanan, idTrip, seat, statusDiSpinner, idSeat; ;
 //    String idPesanan;
 //    String idTrip;
 //    String idSeat;
@@ -41,7 +39,7 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_status_sopir_error);
+        setContentView(R.layout.activity_change_status_sopir);
 
         DetailTripSopirData detailTripSopirData = getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS_SOPIR);
         Nama = detailTripSopirData.getNamaPenumpang();
@@ -86,7 +84,7 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
 
 
 
-        spinnerStatus.setAdapter(new ArrayAdapter<>(ChangeStatusActivitySopirError.this, android.R.layout.simple_spinner_dropdown_item,arrayList));
+        spinnerStatus.setAdapter(new ArrayAdapter<>(ChangeStatusActivitySopir.this, android.R.layout.simple_spinner_dropdown_item,arrayList));
         spinnerStatus.setSelection(getIndex(spinnerStatus, statusDiSpinner));
 //        Toast.makeText(this, statusDiSpinner, Toast.LENGTH_SHORT).show();
 //        spinnerStatus.setSelection(Integer.parseInt(statusDiSpinner));
@@ -177,15 +175,15 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
             @Override
             public void onResponse(Call<ChangeStatus> call, Response<ChangeStatus> response) {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()) {
-                    Toast.makeText(ChangeStatusActivitySopirError.this, "Woyy, bisaaa", Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(ChangeStatusActivitySopirError.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intentBack = new Intent(ChangeStatusActivitySopirError.this, MainActivity.class);
+//                    Toast.makeText(ChangeStatusActivitySopirError.this, "Woyy, bisaaa", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Intent intentBack = new Intent(ChangeStatusActivitySopir.this, MainActivity.class);
                     startActivity(intentBack);
                     finish();
                 }else{
-//                    Toast.makeText(ChangeStatusActivitySopirError.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 //                    Toast.makeText(ChangeStatusActivitySopirError.this, "Upss data tidak ditemukan", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(ChangeStatusActivitySopirError.this, "Kok ndak bisa???", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ChangeStatusActivitySopirError.this, "Kok ndak bisa???", Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -195,7 +193,7 @@ public class ChangeStatusActivitySopirError extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ChangeStatus> call, Throwable t) {
-                Toast.makeText(ChangeStatusActivitySopirError.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangeStatusActivitySopir.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 //                Toast.makeText(ChangeStatusActivitySopir.this, "Upss data tidak ditemukan", Toast.LENGTH_SHORT).show();
 
 

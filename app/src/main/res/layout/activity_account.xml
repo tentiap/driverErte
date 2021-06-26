@@ -49,7 +49,7 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="15sp"
             android:fontFamily="sans-serif-light"
-            android:text="Pemesan Satu"
+            android:text="Nama Driver"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="32sp" />

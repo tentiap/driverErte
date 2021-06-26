@@ -11,23 +11,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.sopir.ChangeStatusActivitySopirError"
-                  android:theme="@style/AppThemeActionBar"></activity>
+        <activity android:name=".activity.sopir.ChangeStatusActivitySopir"
+                  android:theme="@style/AppThemeActionBar"/>
+
         <activity
-            android:name=".activity.feeder.ChangeStatusActivity"
-            android:theme="@style/AppThemeActionBar" />
+            android:name=".activity.feeder.ChangeStatusActivityFeeder"
+            android:theme="@style/AppThemeActionBar"/>
+
+
         <activity
             android:name=".activity.sopir.DetailTripSopirActivity"
             android:theme="@style/AppThemeActionBar" />
+
         <activity android:name=".activity.feeder.AccountActivityFeeder" />
         <activity android:name=".activity.feeder.HistoryActivityFeeder" />
         <activity android:name=".activity.feeder.MainActivityFeeder" />
+
         <activity
             android:name=".activity.feeder.LoginFeederActivity"
             android:parentActivityName=".activity.sopir.LoginActivity"
-            android:theme="@style/AppThemeActionBar1">
-            >
-        </activity>
+            android:theme="@style/AppThemeActionBar1"/>
+
         <activity android:name=".activity.sopir.AccountActivity" />
         <activity android:name=".activity.sopir.HistoryActivity" />
         <activity android:name=".activity.sopir.MainActivity">

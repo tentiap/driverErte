@@ -1,7 +1,6 @@
 package com.example.drivererte.adapter.sopir;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -12,13 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drivererte.R;
-import com.example.drivererte.activity.sopir.ChangeStatusActivitySopirError;
+import com.example.drivererte.activity.sopir.ChangeStatusActivitySopir;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
 
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopirAdapter.DetailTripSopirHolder> {
@@ -54,8 +52,8 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
             @Override
             public void onClick(View view) {
 //                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
-                Intent changeStatusSopir = new Intent(ctx, ChangeStatusActivitySopirError.class);
-                changeStatusSopir.putExtra(ChangeStatusActivitySopirError.EXTRA_CHANGE_STATUS_SOPIR, detailTripSopirData);
+                Intent changeStatusSopir = new Intent(ctx, ChangeStatusActivitySopir.class);
+                changeStatusSopir.putExtra(ChangeStatusActivitySopir.EXTRA_CHANGE_STATUS_SOPIR, detailTripSopirData);
                 ctx.startActivity(changeStatusSopir);
             }
         });
