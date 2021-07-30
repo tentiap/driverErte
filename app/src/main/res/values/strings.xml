@@ -17,4 +17,10 @@
         <item>Arrived</item>
         <item>Cancelled</item>
     </string-array>
+
+    <string-array name="array_status_feeder">
+        <item>Booking</item>
+        <item>Picked Up</item>
+        <item>Cancelled</item>
+    </string-array>
 </resources>

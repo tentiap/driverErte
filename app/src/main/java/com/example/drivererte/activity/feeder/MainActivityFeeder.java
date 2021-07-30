@@ -60,6 +60,7 @@ public class MainActivityFeeder extends AppCompatActivity {
         tvWelcome = findViewById(R.id.tv_welcome_feeder);
         tvWelcome.setText("Welcome, " +sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.NAMA) + "!");
 
+
         idUsersFeeder = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.ID_USERS);
         showTripFeeder(idUsersFeeder);
 

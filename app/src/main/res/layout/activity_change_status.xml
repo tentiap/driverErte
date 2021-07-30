@@ -68,7 +68,7 @@
                     android:id="@+id/spinner_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/array_status"
+                    android:entries="@array/array_status_feeder"
                     android:fontFamily="sans-serif-light"
                     android:textSize="18sp" />
 

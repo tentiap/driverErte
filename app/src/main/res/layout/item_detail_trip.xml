@@ -167,6 +167,22 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/tv_emoji_status_sopir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_passenger_seat"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textColor="#FF000000"
+            android:textAlignment="center"
+            android:textSize="50dp" />
+
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

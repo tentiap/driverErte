@@ -12,11 +12,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".activity.sopir.ChangeStatusActivitySopir"
-                  android:theme="@style/AppThemeActionBar"/>
+                  android:theme="@style/AppThemeActionBar1"/>
 
         <activity
             android:name=".activity.feeder.ChangeStatusActivityFeeder"
-            android:theme="@style/AppThemeActionBar"/>
+            android:theme="@style/AppThemeActionBar1"/>
 
 
         <activity

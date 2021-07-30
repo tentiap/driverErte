@@ -8,6 +8,9 @@ public class ApiClient {
 //    private static final String BASE_URL = "http://10.44.10.245:8000/api/";
     private static final String BASE_URL = "http://192.168.43.201:8000/api/";
 //    private static final String BASE_URL = "http://192.168.100.8:8000/api/";
+//    private static final String BASE_URL = "http://192.168.43.201:8000/api/";
+//private static final String BASE_URL = "http://10.44.10.229:8000/api/";
+
 
     private static Retrofit retrofit;
 

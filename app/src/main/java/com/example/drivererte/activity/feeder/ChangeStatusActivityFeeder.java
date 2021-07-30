@@ -22,6 +22,7 @@ import com.example.drivererte.model.changeStatus.ChangeStatus;
 import com.example.drivererte.model.tripFeeder.TripFeederData;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ChangeStatusActivityFeeder extends AppCompatActivity {
     public static final String EXTRA_CHANGE_STATUS = "extra_change_status";
@@ -58,20 +59,28 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
 
         ArrayList<String> arrayList = new ArrayList<>();
 
-        for (int i=0; i<5; i++){
+
+        for (int i=0; i<3; i++){
             if (i == 0){
                 arrayList.add("Booking");
             }else if (i == 1){
                 arrayList.add("Picked Up");
             }else if (i == 2){
-                arrayList.add("On Going");
-            }else if (i == 3){
-                arrayList.add("Arrived");
-            }else if (i == 4){
                 arrayList.add("Cancelled");
             }else {
                 arrayList.add("Status Baru");
             }
+
+            //Jadi, sekarang gimana caranya supaya mindahin data di api tu ke sini?? Tanpa adapter
+//            Integer arr[] = { 1, 3 };
+//
+//            boolean checkBookedSeat = Arrays.asList(arr).contains(i);
+//
+//            if (checkBookedSeat == true) {
+//                System.out.println("Skip aja ya");
+//            } else {
+//                arrayList.add(String.valueOf(i));
+//            }
         }
 
         spinnerStatus.setAdapter(new ArrayAdapter<>(ChangeStatusActivityFeeder.this, android.R.layout.simple_spinner_dropdown_item,arrayList ));
@@ -91,12 +100,6 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
                         break;
                     case "Picked Up":
                         status = 2;
-                        break;
-                    case "On Going":
-                        status = 3;
-                        break;
-                    case "Arrived":
-                        status = 4;
                         break;
                     case "Cancelled":
                         status = 5;

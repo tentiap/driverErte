@@ -45,8 +45,20 @@ public class TripFeederAdapter extends RecyclerView.Adapter<TripFeederAdapter.Tr
         holder.tvIdSeat.setText(tripFeederData.getIdSeat());
         holder.tvAlamat.setText(tripFeederData.getDetailAsal());
         holder.tvBiaya.setText(tripFeederData.getBiayaTambahan());
-        holder.tvStatus.setText(tripFeederData.getStatus());
         holder.tvJadwal.setText(tripFeederData.getJadwal());
+        holder.tvStatus.setText(tripFeederData.getStatus());
+        switch (tripFeederData.getStatus()){
+            case "Booking":
+                holder.tvEmojiStatus.setText("");
+                break;
+            case "Picked Up":
+                holder.tvEmojiStatus.setText("✅");
+                break;
+            case "Cancelled":
+                holder.tvEmojiStatus.setText("❌");
+                break;
+        }
+
 
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +88,7 @@ public class TripFeederAdapter extends RecyclerView.Adapter<TripFeederAdapter.Tr
     }
 
     public class TripFeederHolder extends RecyclerView.ViewHolder {
-        TextView tvNama, tvJenisKelamin, tvIdSeat, tvAlamat, tvBiaya, tvStatus, tvJadwal;
+        TextView tvNama, tvJenisKelamin, tvIdSeat, tvAlamat, tvBiaya, tvStatus, tvJadwal, tvEmojiStatus;
         Button btnCall, btnChange;
 
         public TripFeederHolder(@NonNull View itemView) {
@@ -85,6 +97,7 @@ public class TripFeederAdapter extends RecyclerView.Adapter<TripFeederAdapter.Tr
             tvNama = itemView.findViewById(R.id.tv_passenger_name_feeder);
             tvJenisKelamin = itemView.findViewById(R.id.tv_passenger_gender_feeder);
             tvIdSeat = itemView.findViewById(R.id.tv_passenger_seat_feeder);
+            tvEmojiStatus = itemView.findViewById(R.id.tv_emoji_status);
             tvAlamat = itemView.findViewById(R.id.tv_passenger_asal_feeder);
             tvBiaya = itemView.findViewById(R.id.tv_biaya_feeder);
             tvStatus = itemView.findViewById(R.id.tv_passenger_status_feeder);

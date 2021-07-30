@@ -177,7 +177,8 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()) {
 //                    Toast.makeText(ChangeStatusActivitySopirError.this, "Woyy, bisaaa", Toast.LENGTH_SHORT).show();
                     Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intentBack = new Intent(ChangeStatusActivitySopir.this, MainActivity.class);
+                    Intent intentBack = new Intent(ChangeStatusActivitySopir.this, DetailTripSopirActivity.class);
+                    intentBack.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, idTrip);
                     startActivity(intentBack);
                     finish();
                 }else{

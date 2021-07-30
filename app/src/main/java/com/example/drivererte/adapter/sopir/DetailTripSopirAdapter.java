@@ -47,6 +47,20 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
         holder.tvPassengerTujuan.setText(detailTripSopirData.getDetailTujuan());
         holder.tvPassengerSeat.setText(detailTripSopirData.getIdSeat());
         holder.tvPassengerStatus.setText(detailTripSopirData.getStatus());
+        switch (detailTripSopirData.getStatus()){
+            case "Booking":
+                holder.tvEmojiStatusSopir.setText("");
+                break;
+            case "Picked Up":
+                holder.tvEmojiStatusSopir.setText("");
+                break;
+            case "On Going":
+                holder.tvEmojiStatusSopir.setText("🚗");
+                break;
+            case "Arrived":
+                holder.tvEmojiStatusSopir.setText("✅");
+                break;
+        }
 
         holder.btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +90,7 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
     }
 
     public class DetailTripSopirHolder extends RecyclerView.ViewHolder {
-        TextView tvPassengerName, tvPassengerGender, tvPassengerAsal, tvPassengerTujuan,
+        TextView tvPassengerName, tvPassengerGender, tvPassengerAsal, tvPassengerTujuan, tvEmojiStatusSopir,
                  tvPassengerSeat, tvPassengerStatus;
         Button btnCall, btnChange;
 
@@ -89,6 +103,7 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
             tvPassengerTujuan = itemView.findViewById(R.id.tv_passenger_tujuan);
             tvPassengerSeat = itemView.findViewById(R.id.tv_passenger_seat);
             tvPassengerStatus = itemView.findViewById(R.id.tv_passenger_status);
+            tvEmojiStatusSopir = itemView.findViewById(R.id.tv_emoji_status_sopir);
             btnCall = itemView.findViewById(R.id.btn_call);
             btnChange = itemView.findViewById(R.id.btn_change);
 
