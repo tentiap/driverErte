@@ -33,7 +33,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_below="@+id/tv_welcome"
-            android:text="Check your future trip below!"
+            android:text="Check your upcoming trip below!"
             android:textStyle="italic"
             android:textColor="@color/white"
             android:textSize="15sp" />
