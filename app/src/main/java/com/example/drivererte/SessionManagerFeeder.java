@@ -14,7 +14,7 @@ public class SessionManagerFeeder {
     private SharedPreferences.Editor editorFeeder;
 
     public static final String IS_LOGGED_IN_FEEDER = "isLoggedInFeeder";
-    public static final String ID_USERS = "id_users";
+    public static final String ID_FEEDER = "id_feeder";
     public static final String EMAIL = "email";
     public static final String NAMA = "nama";
     public static final String USERNAME = "username";
@@ -30,7 +30,7 @@ public class SessionManagerFeeder {
 
     public void createLoginFeederSession(LoginFeederData feeder){
         editorFeeder.putBoolean(IS_LOGGED_IN_FEEDER, true);
-        editorFeeder.putString(ID_USERS, feeder.getIdUsers());
+        editorFeeder.putString(ID_FEEDER, feeder.getIdFeeder());
         editorFeeder.putString(EMAIL, feeder.getEmail());
         editorFeeder.putString(NAMA, feeder.getNama());
         editorFeeder.putString(USERNAME, feeder.getUsername());
@@ -42,7 +42,7 @@ public class SessionManagerFeeder {
 
     public HashMap<String,String> getFeederDetail(){
         HashMap<String,String> feeder = new HashMap<>();
-        feeder.put(ID_USERS, sharedPreferencesFeeder.getString(ID_USERS, null));
+        feeder.put(ID_FEEDER, sharedPreferencesFeeder.getString(ID_FEEDER, null));
         feeder.put(EMAIL, sharedPreferencesFeeder.getString(EMAIL, null));
         feeder.put(NAMA, sharedPreferencesFeeder.getString(NAMA, null));
         feeder.put(USERNAME, sharedPreferencesFeeder.getString(USERNAME, null));

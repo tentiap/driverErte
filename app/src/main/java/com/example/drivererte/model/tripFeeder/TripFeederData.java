@@ -7,20 +7,20 @@ import com.google.gson.annotations.SerializedName;
 
 public class TripFeederData implements Parcelable {
 
-	@SerializedName("id_trip")
-	private String idTrip;
+	@SerializedName("jadwal")
+	private String jadwal;
 
-	@SerializedName("id_pesanan")
-	private String idPesanan;
+	@SerializedName("id_pemesan")
+	private String idPemesan;
 
 	@SerializedName("kontak")
 	private String kontak;
 
-	@SerializedName("jadwal")
-	private String jadwal;
-
 	@SerializedName("no_hp")
 	private String noHp;
+
+	@SerializedName("plat_mobil")
+	private String platMobil;
 
 	@SerializedName("id_seat")
 	private String idSeat;
@@ -35,26 +35,22 @@ public class TripFeederData implements Parcelable {
 	private String detailAsal;
 
 	@SerializedName("biaya_tambahan")
-	private Object biayaTambahan;
+	private String biayaTambahan;
 
 	@SerializedName("status")
-	private int status;
+	private String status;
 
 	protected TripFeederData(Parcel in) {
-		idTrip = in.readString();
-		idPesanan = in.readString();
-		kontak = in.readString();
 		jadwal = in.readString();
-		noHp = in.readString();
+		idPemesan = in.readString();
+		kontak = in.readString();
+		platMobil = in.readString();
 		idSeat = in.readString();
 		namaPenumpang = in.readString();
 		jenisKelamin = in.readString();
 		detailAsal = in.readString();
-		status = in.readInt();
-	}
-
-	public TripFeederData(){
-
+		biayaTambahan = in.readString();
+		status = in.readString();
 	}
 
 	public static final Creator<TripFeederData> CREATOR = new Creator<TripFeederData>() {
@@ -68,30 +64,6 @@ public class TripFeederData implements Parcelable {
 			return new TripFeederData[size];
 		}
 	};
-
-	public void setKontak(String kontak){
-		this.kontak = kontak;
-	}
-
-	public String getKontak(){
-		return kontak;
-	}
-
-	public void setIdPesanan(String idPesanan){
-		this.idPesanan = idPesanan;
-	}
-
-	public String getIdPesanan(){
-		return idPesanan;
-	}
-
-	public void setIdTrip(String idTrip){
-		this.idTrip = idTrip;
-	}
-
-	public String getIdTrip(){
-		return idTrip;
-	}
 
 	public void setJadwal(String jadwal){
 		this.jadwal = jadwal;
@@ -115,6 +87,22 @@ public class TripFeederData implements Parcelable {
 		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0] +" - "+ jam[0]+":"+jam[1] ;
 	}
 
+	public void setIdPemesan(String idPemesan){
+		this.idPemesan = idPemesan;
+	}
+
+	public String getIdPemesan(){
+		return idPemesan;
+	}
+
+	public void setKontak(String kontak){
+		this.kontak = kontak;
+	}
+
+	public String getKontak(){
+		return kontak;
+	}
+
 	public void setNoHp(String noHp){
 		this.noHp = noHp;
 	}
@@ -125,6 +113,14 @@ public class TripFeederData implements Parcelable {
 		}else{
 			return noHp;
 		}
+	}
+
+	public void setPlatMobil(String platMobil){
+		this.platMobil = platMobil;
+	}
+
+	public String getPlatMobil(){
+		return platMobil;
 	}
 
 	public void setIdSeat(String idSeat){
@@ -148,8 +144,7 @@ public class TripFeederData implements Parcelable {
 	}
 
 	public String getJenisKelamin(){
-		return "("+jenisKelamin+")";
-	}
+		return "("+jenisKelamin+")";	}
 
 	public void setDetailAsal(String detailAsal){
 		this.detailAsal = detailAsal;
@@ -159,7 +154,7 @@ public class TripFeederData implements Parcelable {
 		return "Address: " +detailAsal;
 	}
 
-	public void setBiayaTambahan(Object biayaTambahan){
+	public void setBiayaTambahan(String biayaTambahan){
 		this.biayaTambahan = biayaTambahan;
 	}
 
@@ -171,22 +166,42 @@ public class TripFeederData implements Parcelable {
 		}
 	}
 
-	public void setStatus(int status){
+	public void setStatus(String status){
 		this.status = status;
 	}
 
 	public String getStatus(){
-		if (status == 1){
-			return "Booking ";
-		}else if (status == 2){
-			return "Picked Up";
-		}else if (status == 3){
-			return "On Going";
-		}else if (status == 4){
-			return "Arrived";
-		}else{
-			return "Cancelled";
+
+//		if (status == 1){
+//			return "Booking ";
+//		}else if (status == "2"){
+//			return "Picked Up";
+//		}else if (status == "3"){
+//			return "On Going";
+//		}else if (status == "4"){
+//			return "Arrived";
+//		}else{
+//			return "Cancelled";
+//		}
+////		return  status;
+		switch (status){
+			case "1":
+				status = "Booking";
+				break;
+			case "2":
+				status = "Picked Up";
+				break;
+			case "3":
+				status = "On Going";
+				break;
+			case "4":
+				status = "Arrived";
+				break;
+			case "5":
+				status = "Cancelled";
+				break;
 		}
+		return status;
 	}
 
 	@Override
@@ -195,16 +210,16 @@ public class TripFeederData implements Parcelable {
 	}
 
 	@Override
-	public void writeToParcel(Parcel parcel, int i) {
-		parcel.writeString(idTrip);
-		parcel.writeString(idPesanan);
-		parcel.writeString(kontak);
-		parcel.writeString(jadwal);
-		parcel.writeString(noHp);
-		parcel.writeString(idSeat);
-		parcel.writeString(namaPenumpang);
-		parcel.writeString(jenisKelamin);
-		parcel.writeString(detailAsal);
-		parcel.writeInt(status);
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(jadwal);
+		dest.writeString(idPemesan);
+		dest.writeString(kontak);
+		dest.writeString(platMobil);
+		dest.writeString(idSeat);
+		dest.writeString(namaPenumpang);
+		dest.writeString(jenisKelamin);
+		dest.writeString(detailAsal);
+		dest.writeString(biayaTambahan);
+		dest.writeString(status);
 	}
 }

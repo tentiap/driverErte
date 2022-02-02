@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginSopirData {
 
-	@SerializedName("merek_mobil")
-	private String merekMobil;
-
 	@SerializedName("password")
 	private String password;
 
@@ -19,11 +16,8 @@ public class LoginSopirData {
 	@SerializedName("updated_at")
 	private String updatedAt;
 
-	@SerializedName("plat_mobil")
-	private String platMobil;
-
-	@SerializedName("id_users")
-	private String idUsers;
+	@SerializedName("id_sopir")
+	private String idSopir;
 
 	@SerializedName("created_at")
 	private String createdAt;
@@ -36,14 +30,6 @@ public class LoginSopirData {
 
 	@SerializedName("username")
 	private String username;
-
-	public void setMerekMobil(String merekMobil){
-		this.merekMobil = merekMobil;
-	}
-
-	public String getMerekMobil(){
-		return merekMobil;
-	}
 
 	public void setPassword(String password){
 		this.password = password;
@@ -77,20 +63,12 @@ public class LoginSopirData {
 		return updatedAt;
 	}
 
-	public void setPlatMobil(String platMobil){
-		this.platMobil = platMobil;
+	public void setIdSopir(String idSopir){
+		this.idSopir = idSopir;
 	}
 
-	public String getPlatMobil(){
-		return platMobil;
-	}
-
-	public void setIdUsers(String idUsers){
-		this.idUsers = idUsers;
-	}
-
-	public String getIdUsers(){
-		return idUsers;
+	public String getIdSopir(){
+		return idSopir;
 	}
 
 	public void setCreatedAt(String createdAt){
@@ -106,11 +84,6 @@ public class LoginSopirData {
 	}
 
 	public String getJenisKelamin(){
-//		if (jenisKelamin == 1){
-//			return "Laki-laki";
-//		}else{
-//			return "Perempuan";
-//		}
 		return jenisKelamin;
 	}
 

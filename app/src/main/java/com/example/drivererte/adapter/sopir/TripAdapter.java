@@ -42,7 +42,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripHolder> {
     public void onBindViewHolder(@NonNull final TripHolder holder, int position) {
         TripSopirData tripSopirData = listTrip.get(position);
 
-        holder.tvId.setText("ID Trip: " +tripSopirData.getIdTrip());
+        holder.tvPlat.setText(tripSopirData.getPlatMobil());
         holder.tvAsal.setText(tripSopirData.getIdKotaAsal());
         holder.tvTujuan.setText(tripSopirData.getIdKotaTujuan());
         holder.tvJadwal.setText(tripSopirData.getTanggal());
@@ -62,12 +62,12 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripHolder> {
     }
 
     public class TripHolder extends RecyclerView.ViewHolder {
-        TextView tvAsal, tvTujuan, tvJadwal, tvJam, tvId;
+        TextView tvAsal, tvTujuan, tvJadwal, tvJam, tvPlat;
 
         public TripHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvId = itemView.findViewById(R.id.tv_item_id_trip);
+            tvPlat= itemView.findViewById(R.id.tv_item_plat_mobil);
             tvAsal = itemView.findViewById(R.id.tv_item_asal);
             tvTujuan = itemView.findViewById(R.id.tv_item_tujuan);
             tvJadwal = itemView.findViewById(R.id.tv_item_jadwal);

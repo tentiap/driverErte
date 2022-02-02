@@ -22,7 +22,6 @@ import com.example.drivererte.model.changeStatus.ChangeStatus;
 import com.example.drivererte.model.tripFeeder.TripFeederData;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ChangeStatusActivityFeeder extends AppCompatActivity {
     public static final String EXTRA_CHANGE_STATUS = "extra_change_status";
@@ -30,7 +29,7 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
     TextView tvName;
     Spinner spinnerStatus;
     Button btnUpdate;
-    String Nama, Selected, idPesanan, idTrip, idSeat, seat, statusDiSpinner;
+    String Nama, Selected, jadwal, platMobil, idPemesan, idSeat, seat, statusDiSpinner;
     int status;
 
     @Override
@@ -41,8 +40,9 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
         TripFeederData tripFeederData = getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS);
         Nama = tripFeederData.getNamaPenumpang();
         statusDiSpinner = tripFeederData.getStatus();
-        idPesanan = tripFeederData.getIdPesanan();
-        idTrip = tripFeederData.getIdTrip();
+        jadwal = tripFeederData.getJadwal();
+        platMobil = tripFeederData.getPlatMobil();
+        idPemesan = tripFeederData.getIdPemesan();
         seat = tripFeederData.getIdSeat();
 
         String[] seatString = seat.split(" ");
@@ -125,7 +125,7 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
 
     private void changeStatus() {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(idPesanan, idTrip, idSeat, status);
+        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idPemesan, idSeat, status);
         changeStatusCall.enqueue(new Callback<ChangeStatus>() {
             @Override
             public void onResponse(Call<ChangeStatus> call, Response<ChangeStatus> response) {

@@ -13,12 +13,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.drivererte.R;
-import com.example.drivererte.SessionManager;
 import com.example.drivererte.SessionManagerFeeder;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 import com.example.drivererte.model.loginFeeder.LoginFeeder;
 import com.example.drivererte.model.loginFeeder.LoginFeederData;
+//import com.example.drivererte.model.loginFeeder.LoginFeederOld;
+//import com.example.drivererte.model.loginFeeder.LoginFeederDataOld;
 
 public class LoginFeederActivity extends AppCompatActivity implements View.OnClickListener {
     EditText edtEmail, edtPassword;
@@ -56,8 +57,8 @@ public class LoginFeederActivity extends AppCompatActivity implements View.OnCli
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()){
 
                     sessionManagerFeeder = new SessionManagerFeeder(LoginFeederActivity.this);
-                    LoginFeederData loginFeederData = response.body().getLoginFeederData();
-                    sessionManagerFeeder.createLoginFeederSession(loginFeederData);
+                    LoginFeederData loginFeederDataOld = response.body().getLoginFeederData();
+                    sessionManagerFeeder.createLoginFeederSession(loginFeederDataOld);
 
                     Toast.makeText(LoginFeederActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intentLogin = new Intent(LoginFeederActivity.this, MainActivityFeeder.class);

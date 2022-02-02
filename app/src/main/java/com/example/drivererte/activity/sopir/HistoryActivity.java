@@ -14,18 +14,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drivererte.R;
 import com.example.drivererte.SessionManager;
 import com.example.drivererte.adapter.sopir.HistoryAdapter;
-import com.example.drivererte.adapter.sopir.TripAdapter;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 import com.example.drivererte.model.historySopir.HistorySopir;
 import com.example.drivererte.model.historySopir.HistorySopirData;
-import com.example.drivererte.model.tripSopir.TripSopirData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -50,7 +47,7 @@ public class HistoryActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
 
         sessionManager = new SessionManager(HistoryActivity.this);
-        idUser = sessionManager.getSopirDetail().get(SessionManager.ID_USERS);
+        idUser = sessionManager.getSopirDetail().get(SessionManager.ID_SOPIR);
         showHistorySopir(idUser);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

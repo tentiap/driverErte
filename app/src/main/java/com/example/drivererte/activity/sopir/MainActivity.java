@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
             moveToLogin();
         }
-        idUser = sessionManager.getSopirDetail().get(SessionManager.ID_USERS);
+        idUser = sessionManager.getSopirDetail().get(SessionManager.ID_SOPIR);
         showTripSopir(idUser);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     String message = response.body().getMessage();
 //                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                     listData = response.body().getData();
+                    System.out.println("List Data: " +listData);
 
                     final TripAdapter tripAdapter = new TripAdapter(MainActivity.this, listData);
                     rvTripSopir.setAdapter(tripAdapter);
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onItemClicked(TripSopirData data) {
                             Intent detailHistoryIntent = new Intent(MainActivity.this, DetailTripSopirActivity.class);
-                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, data.getIdTrip());
+                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, data.getJadwal());
                             startActivity(detailHistoryIntent);
 //                            Toast.makeText(MainActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
                         }

@@ -1,32 +1,53 @@
 package com.example.drivererte.model.tripSopir;
 
-import com.google.gson.annotations.SerializedName;
-
 public class TripSopirData {
-
-	@SerializedName("jadwal")
-	private String jadwal;
-
-	@SerializedName("updated_at")
-	private String updatedAt;
-
-	@SerializedName("id_kota_asal")
-	private String idKotaAsal;
-
-	@SerializedName("id_users_operator")
-	private String idUsersOperator;
-
-	@SerializedName("id_kota_tujuan")
-	private String idKotaTujuan;
-
-	@SerializedName("created_at")
+	private String platMobil;
 	private String createdAt;
+	private int tarifTrip;
+	private String merekMobil;
+	private String jadwal;
+	private String password;
+	private String kontak;
+	private String updatedAt;
+	private String nama;
+	private String idKotaAsal;
+	private String idSopir;
+	private String idKotaTujuan;
+	private String jenisKelamin;
+	private String email;
+	private String username;
 
-	@SerializedName("id_trip")
-	private String idTrip;
+	public void setPlatMobil(String platMobil){
+		this.platMobil = platMobil;
+	}
 
-	@SerializedName("id_users_sopir")
-	private String idUsersSopir;
+	public String getPlatMobil(){
+		return platMobil;
+	}
+
+	public void setCreatedAt(String createdAt){
+		this.createdAt = createdAt;
+	}
+
+	public String getCreatedAt(){
+		return createdAt;
+	}
+
+	public void setTarifTrip(int tarifTrip){
+		this.tarifTrip = tarifTrip;
+	}
+
+	public int getTarifTrip(){
+		return tarifTrip;
+	}
+
+	public void setMerekMobil(String merekMobil){
+		this.merekMobil = merekMobil;
+	}
+
+	public String getMerekMobil(){
+		return merekMobil;
+	}
 
 	public void setJadwal(String jadwal){
 		this.jadwal = jadwal;
@@ -37,7 +58,8 @@ public class TripSopirData {
 		String time =  tanggal[1];
 
 		String[] jam = time.split(":");
-		return jam[0]+":"+jam[1];	}
+		return jam[0]+":"+jam[1];
+	}
 
 	public String getTanggal(){
 		String[] date = jadwal.split(" ");
@@ -52,6 +74,22 @@ public class TripSopirData {
 		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0];
 	}
 
+	public void setPassword(String password){
+		this.password = password;
+	}
+
+	public String getPassword(){
+		return password;
+	}
+
+	public void setKontak(String kontak){
+		this.kontak = kontak;
+	}
+
+	public String getKontak(){
+		return kontak;
+	}
+
 	public void setUpdatedAt(String updatedAt){
 		this.updatedAt = updatedAt;
 	}
@@ -60,30 +98,39 @@ public class TripSopirData {
 		return updatedAt;
 	}
 
+	public void setNama(String nama){
+		this.nama = nama;
+	}
+
+	public String getNama(){
+		return nama;
+	}
+
 	public void setIdKotaAsal(String idKotaAsal){
 		this.idKotaAsal = idKotaAsal;
 	}
 
 	public String getIdKotaAsal(){
-		switch (idKotaAsal){
-			case "K1":
-				idKotaAsal = "Bukittinggi";
-				break;
-			case "K2":
-				idKotaAsal = "Padang";
-				break;
-			case "K3":
-				idKotaAsal = "Pekanbaru";
-				break;
-		}
-		return idKotaAsal;	}
-
-	public void setIdUsersOperator(String idUsersOperator){
-		this.idUsersOperator = idUsersOperator;
+//		switch (idKotaAsal){
+//			case "K1":
+//				idKotaAsal = "Bukittinggi";
+//				break;
+//			case "K2":
+//				idKotaAsal = "Padang";
+//				break;
+//			case "K3":
+//				idKotaAsal = "Pekanbaru";
+//				break;
+//		}
+		return idKotaAsal;
 	}
 
-	public String getIdUsersOperator(){
-		return idUsersOperator;
+	public void setIdSopir(String idSopir){
+		this.idSopir = idSopir;
+	}
+
+	public String getIdSopir(){
+		return idSopir;
 	}
 
 	public void setIdKotaTujuan(String idKotaTujuan){
@@ -91,40 +138,30 @@ public class TripSopirData {
 	}
 
 	public String getIdKotaTujuan(){
-		switch (idKotaTujuan){
-			case "K1":
-				idKotaTujuan = "Bukittinggi";
-				break;
-			case "K2":
-				idKotaTujuan = "Padang";
-				break;
-			case "K3":
-				idKotaTujuan = "Pekanbaru";
-				break;
-		}
-		return idKotaTujuan;	}
-
-	public void setCreatedAt(String createdAt){
-		this.createdAt = createdAt;
+		return idKotaTujuan;
 	}
 
-	public String getCreatedAt(){
-		return createdAt;
+	public void setJenisKelamin(String jenisKelamin){
+		this.jenisKelamin = jenisKelamin;
 	}
 
-	public void setIdTrip(String idTrip){
-		this.idTrip = idTrip;
+	public String getJenisKelamin(){
+		return jenisKelamin;
 	}
 
-	public String getIdTrip(){
-		return idTrip;
+	public void setEmail(String email){
+		this.email = email;
 	}
 
-	public void setIdUsersSopir(String idUsersSopir){
-		this.idUsersSopir = idUsersSopir;
+	public String getEmail(){
+		return email;
 	}
 
-	public String getIdUsersSopir(){
-		return idUsersSopir;
+	public void setUsername(String username){
+		this.username = username;
+	}
+
+	public String getUsername(){
+		return username;
 	}
 }

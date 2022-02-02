@@ -1,17 +1,10 @@
 package com.example.drivererte.model.tripSopir;
 
 import java.util.List;
-import com.google.gson.annotations.SerializedName;
 
 public class TripSopir{
-
-	@SerializedName("data")
 	private List<TripSopirData> data;
-
-	@SerializedName("message")
 	private String message;
-
-	@SerializedName("status")
 	private boolean status;
 
 	public void setData(List<TripSopirData> data){

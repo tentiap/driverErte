@@ -16,14 +16,14 @@ public class LoginFeederData {
 	@SerializedName("updated_at")
 	private String updatedAt;
 
-	@SerializedName("id_users")
-	private String idUsers;
-
 	@SerializedName("created_at")
 	private String createdAt;
 
 	@SerializedName("id_kota")
 	private String idKota;
+
+	@SerializedName("id_feeder")
+	private String idFeeder;
 
 	@SerializedName("jenis_kelamin")
 	private String jenisKelamin;
@@ -66,14 +66,6 @@ public class LoginFeederData {
 		return updatedAt;
 	}
 
-	public void setIdUsers(String idUsers){
-		this.idUsers = idUsers;
-	}
-
-	public String getIdUsers(){
-		return idUsers;
-	}
-
 	public void setCreatedAt(String createdAt){
 		this.createdAt = createdAt;
 	}
@@ -87,7 +79,7 @@ public class LoginFeederData {
 	}
 
 	public String getIdKota(){
-//		return idKota;
+
 		switch (idKota){
 			case "K1":
 				idKota = "Bukittinggi";
@@ -100,7 +92,14 @@ public class LoginFeederData {
 				break;
 		}
 		return idKota;
+	}
 
+	public void setIdFeeder(String idFeeder){
+		this.idFeeder = idFeeder;
+	}
+
+	public String getIdFeeder(){
+		return idFeeder;
 	}
 
 	public void setJenisKelamin(String jenisKelamin){
@@ -108,11 +107,6 @@ public class LoginFeederData {
 	}
 
 	public String getJenisKelamin(){
-//		if (jenisKelamin == 1){
-//			return "Laki-laki";
-//		}else{
-//			return "Perempuan";
-//		}
 		return jenisKelamin;
 	}
 

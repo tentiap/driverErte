@@ -2,7 +2,6 @@ package com.example.drivererte.api;
 
 //import com.example.drivererte.model.changeStatusError.ChangeStatusError;
 import com.example.drivererte.model.changeStatus.ChangeStatus;
-import com.example.drivererte.model.changeStatusError.ChangeStatusError;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopir;
 import com.example.drivererte.model.historySopir.HistorySopir;
 import com.example.drivererte.model.loginFeeder.LoginFeeder;
@@ -33,14 +32,14 @@ public interface ApiInterface {
             @Field("password") String password
     );
 
-    @GET("tripSopir/{id_users}")
+    @GET("tripSopir/{id_sopir}")
     Call<TripSopir> tripSopirResponse(
-            @Path("id_users") String id_users
+            @Path("id_sopir") String id_sopir
     );
 
     @GET("historySopir/{id_users}")
     Call<HistorySopir> historySopirResponse(
-            @Path("id_users") String id_users
+            @Path("id_sopir") String id_sopir
     );
 
     @GET("detailTripSopir/{id_trip}")

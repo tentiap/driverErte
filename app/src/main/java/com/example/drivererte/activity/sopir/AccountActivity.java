@@ -51,8 +51,8 @@ public class AccountActivity extends AppCompatActivity {
         username = sessionManager.getSopirDetail().get(SessionManager.USERNAME);
         phone = sessionManager.getSopirDetail().get(SessionManager.KONTAK);
         gender = sessionManager.getSopirDetail().get(SessionManager.JENIS_KELAMIN);
-        plat = sessionManager.getSopirDetail().get(SessionManager.PLAT);
-        merek = sessionManager.getSopirDetail().get(SessionManager.MEREK);
+//        plat = sessionManager.getSopirDetail().get(SessionManager.PLAT);
+//        merek = sessionManager.getSopirDetail().get(SessionManager.MEREK);
 
         tvName.setText(name);
         tvUsername.setText(username);

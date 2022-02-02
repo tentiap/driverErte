@@ -18,10 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.drivererte.R;
-import com.example.drivererte.SessionManager;
 import com.example.drivererte.SessionManagerFeeder;
 import com.example.drivererte.activity.sopir.LoginActivity;
-import com.example.drivererte.activity.sopir.MainActivity;
 import com.example.drivererte.adapter.feeder.TripFeederAdapter;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
@@ -41,7 +39,7 @@ public class MainActivityFeeder extends AppCompatActivity {
 //    SessionManager sessionManagerFeeder;
     SessionManagerFeeder sessionManagerFeeder;
     TextView tvWelcome;
-    String idUsersFeeder;
+    String idFeeder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,15 +59,15 @@ public class MainActivityFeeder extends AppCompatActivity {
         tvWelcome.setText("Welcome, " +sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.NAMA) + "!");
 
 
-        idUsersFeeder = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.ID_USERS);
-        showTripFeeder(idUsersFeeder);
+        idFeeder = sessionManagerFeeder.getFeederDetail().get(SessionManagerFeeder.ID_FEEDER);
+        showTripFeeder(idFeeder);
 
 
        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
            @Override
            public void onRefresh() {
                swipeRefreshLayout.setRefreshing(true);
-               showTripFeeder(idUsersFeeder);
+               showTripFeeder(idFeeder);
                swipeRefreshLayout.setRefreshing(false);
            }
        });
@@ -100,11 +98,11 @@ public class MainActivityFeeder extends AppCompatActivity {
 
     }
 
-    public void showTripFeeder(String idUsersFeeder) {
+    public void showTripFeeder(String idFeeder) {
         progressBar.setVisibility(View.VISIBLE);
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<TripFeeder> tripFeederCall = apiInterface.tripFeederResponse(idUsersFeeder);
+        Call<TripFeeder> tripFeederCall = apiInterface.tripFeederResponse(idFeeder);
         tripFeederCall.enqueue(new Callback<TripFeeder>() {
             @Override
             public void onResponse(Call<TripFeeder> call, Response<TripFeeder> response) {
