@@ -44,20 +44,22 @@ public interface ApiInterface {
 
     @GET("detailTripSopir/{id_trip}")
     Call<DetailTripSopir> detailTripSopirResponse(
-            @Path("id_trip") String id_trip
+            @Path("jadwal") String jadwal,
+            @Path("plat_mobil") String plat_mobil
     );
 
-    @GET("tripFeeder/{id_users_feeder}")
+    @GET("tripFeeder/{id_feeder}")
     Call<TripFeeder> tripFeederResponse(
-            @Path("id_users_feeder") String id_users_feeder
+            @Path("id_feeder") String id_feeder
     );
 
     @FormUrlEncoded
     @POST("changeStatus")
     Call<ChangeStatus> changeStatusResponse(
-            @Field("id_pesanan") String id_pesanan,
-            @Field("id_trip") String id_trip,
+            @Field("jadwal") String jadwal,
+            @Field("plat_mobil") String plat_mobil,
             @Field("id_seat") String id_seat,
-            @Field("status") int status
+            @Field("order_number") int order_number,
+            @Field("status") String status
     );
 }

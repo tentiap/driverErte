@@ -29,8 +29,8 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
     TextView tvName;
     Spinner spinnerStatus;
     Button btnUpdate;
-    String Nama, Selected, jadwal, platMobil, idPemesan, idSeat, seat, statusDiSpinner;
-    int status;
+    String Nama, Selected, jadwal, platMobil, status, idPemesan, idSeat, seat, statusDiSpinner;
+    int orderNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
         platMobil = tripFeederData.getPlatMobil();
         idPemesan = tripFeederData.getIdPemesan();
         seat = tripFeederData.getIdSeat();
+        orderNumber = tripFeederData.getOrder_number();
 
         String[] seatString = seat.split(" ");
         idSeat = seatString[1];
@@ -96,13 +97,13 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
                 Selected = spinnerStatus.getSelectedItem().toString();
                 switch (Selected){
                     case "Booking":
-                        status = 1;
+                        status = "1";
                         break;
                     case "Picked Up":
-                        status = 2;
+                        status = "2";
                         break;
                     case "Cancelled":
-                        status = 5;
+                        status = "5";
                         break;
                 }
 //                Toast.makeText(ChangeStatusActivityFeeder.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
@@ -125,7 +126,7 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
 
     private void changeStatus() {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idPemesan, idSeat, status);
+        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idSeat, orderNumber, status);
         changeStatusCall.enqueue(new Callback<ChangeStatus>() {
             @Override
             public void onResponse(Call<ChangeStatus> call, Response<ChangeStatus> response) {

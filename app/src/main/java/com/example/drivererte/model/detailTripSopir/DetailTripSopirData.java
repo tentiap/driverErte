@@ -7,17 +7,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class DetailTripSopirData implements Parcelable {
 
-	@SerializedName("kontak_pemesan")
-	private String kontakPemesan;
+	@SerializedName("id_pemesan")
+	private String idPemesan;
 
 	@SerializedName("no_hp")
 	private Object noHp;
 
-	@SerializedName("id_trip")
-	private String idTrip;
+	@SerializedName("plat_mobil")
+	private String platMobil;
 
-	@SerializedName("id_pesanan")
-	private String idPesanan;
+	@SerializedName("order_number")
+	private int orderNumber;
 
 	@SerializedName("detail_tujuan")
 	private String detailTujuan;
@@ -28,32 +28,37 @@ public class DetailTripSopirData implements Parcelable {
 	@SerializedName("nama_penumpang")
 	private String namaPenumpang;
 
-	@SerializedName("jenis_kelamin")
-	private String jenisKelamin;
-
 	@SerializedName("detail_asal")
 	private String detailAsal;
 
 	@SerializedName("biaya_tambahan")
 	private Object biayaTambahan;
 
+	@SerializedName("jadwal")
+	private String jadwal;
+
+	@SerializedName("kontak_pemesan")
+	private String kontakPemesan;
+
+	@SerializedName("jenis_kelamin")
+	private String jenisKelamin;
+
 	@SerializedName("status")
-	private int status;
-
-	public DetailTripSopirData(){
-
-	}
+	private String status;
 
 	protected DetailTripSopirData(Parcel in) {
-		kontakPemesan = in.readString();
-		idTrip = in.readString();
-		idPesanan = in.readString();
+		idPemesan = in.readString();
+		platMobil = in.readString();
+		orderNumber = in.readInt();
 		detailTujuan = in.readString();
 		idSeat = in.readString();
 		namaPenumpang = in.readString();
-		jenisKelamin = in.readString();
 		detailAsal = in.readString();
-		status = in.readInt();
+		biayaTambahan = in.readInt();
+		jadwal = in.readString();
+		kontakPemesan = in.readString();
+		jenisKelamin = in.readString();
+		status = in.readString();
 	}
 
 	public static final Creator<DetailTripSopirData> CREATOR = new Creator<DetailTripSopirData>() {
@@ -68,12 +73,12 @@ public class DetailTripSopirData implements Parcelable {
 		}
 	};
 
-	public void setKontakPemesan(String kontakPemesan){
-		this.kontakPemesan = kontakPemesan;
+	public void setIdPemesan(String idPemesan){
+		this.idPemesan = idPemesan;
 	}
 
-	public String getKontakPemesan(){
-		return kontakPemesan;
+	public String getIdPemesan(){
+		return idPemesan;
 	}
 
 	public void setNoHp(Object noHp){
@@ -81,6 +86,7 @@ public class DetailTripSopirData implements Parcelable {
 	}
 
 	public Object getNoHp(){
+
 		if (noHp == null){
 			return kontakPemesan;
 		}else{
@@ -88,20 +94,20 @@ public class DetailTripSopirData implements Parcelable {
 		}
 	}
 
-	public void setIdPesanan(String idPesanan){
-		this.idPesanan = idPesanan;
+	public void setPlatMobil(String platMobil){
+		this.platMobil = platMobil;
 	}
 
-	public String getIdPesanan(){
-		return idPesanan;
+	public String getPlatMobil(){
+		return platMobil;
 	}
 
-	public void setIdTrip(String idTrip){
-		this.idTrip = idTrip;
+	public void setOrderNumber(int orderNumber){
+		this.orderNumber = orderNumber;
 	}
 
-	public String getIdTrip(){
-		return idTrip;
+	public int getOrderNumber(){
+		return orderNumber;
 	}
 
 	public void setDetailTujuan(String detailTujuan){
@@ -109,7 +115,8 @@ public class DetailTripSopirData implements Parcelable {
 	}
 
 	public String getDetailTujuan(){
-		return "To: " +detailTujuan;	}
+		return "To: " +detailTujuan;
+	}
 
 	public void setIdSeat(String idSeat){
 		this.idSeat = idSeat;
@@ -127,13 +134,6 @@ public class DetailTripSopirData implements Parcelable {
 		return namaPenumpang;
 	}
 
-	public void setJenisKelamin(String jenisKelamin){
-		this.jenisKelamin = jenisKelamin;
-	}
-
-	public String getJenisKelamin(){
-		return "("+jenisKelamin+")";	}
-
 	public void setDetailAsal(String detailAsal){
 		this.detailAsal = detailAsal;
 	}
@@ -142,7 +142,7 @@ public class DetailTripSopirData implements Parcelable {
 		return "From: " +detailAsal;
 	}
 
-	public void setBiayaTambahan(Object biayaTambahan){
+	public void setBiayaTambahan(int biayaTambahan){
 		this.biayaTambahan = biayaTambahan;
 	}
 
@@ -154,18 +154,42 @@ public class DetailTripSopirData implements Parcelable {
 		}
 	}
 
-	public void setStatus(int status){
+	public void setJadwal(String jadwal){
+		this.jadwal = jadwal;
+	}
+
+	public String getJadwal(){
+		return jadwal;
+	}
+
+	public void setKontakPemesan(String kontakPemesan){
+		this.kontakPemesan = kontakPemesan;
+	}
+
+	public String getKontakPemesan(){
+		return kontakPemesan;
+	}
+
+	public void setJenisKelamin(String jenisKelamin){
+		this.jenisKelamin = jenisKelamin;
+	}
+
+	public String getJenisKelamin(){
+		return "("+jenisKelamin+")";
+	}
+
+	public void setStatus(String status){
 		this.status = status;
 	}
 
 	public String getStatus(){
-		if (status == 1){
+		if (status == "1"){
 			return "Booking ";
-		}else if (status == 2){
+		}else if (status == "2"){
 			return "Picked Up";
-		}else if (status == 3){
+		}else if (status == "3"){
 			return "On Going";
-		}else if (status == 4){
+		}else if (status == "4"){
 			return "Arrived";
 		}else{
 			return "Cancelled";
@@ -178,15 +202,18 @@ public class DetailTripSopirData implements Parcelable {
 	}
 
 	@Override
-	public void writeToParcel(Parcel parcel, int i) {
-		parcel.writeString(kontakPemesan);
-		parcel.writeString(idTrip);
-		parcel.writeString(idPesanan);
-		parcel.writeString(detailTujuan);
-		parcel.writeString(idSeat);
-		parcel.writeString(namaPenumpang);
-		parcel.writeString(jenisKelamin);
-		parcel.writeString(detailAsal);
-		parcel.writeInt(status);
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(idPemesan);
+		dest.writeString(platMobil);
+		dest.writeInt(orderNumber);
+		dest.writeString(detailTujuan);
+		dest.writeString(idSeat);
+		dest.writeString(namaPenumpang);
+		dest.writeString(detailAsal);
+//		dest.writeInt(biayaTambahan);
+		dest.writeString(jadwal);
+		dest.writeString(kontakPemesan);
+		dest.writeString(jenisKelamin);
+		dest.writeString(status);
 	}
 }

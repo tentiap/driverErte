@@ -29,8 +29,8 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
     TextView tvName;
     Spinner spinnerStatus;
     Button btnUpdate;
-    int status;
-    String Nama, Selected, idPesanan, idTrip, seat, statusDiSpinner, idSeat; ;
+    int orderNumber;
+    String Nama, Selected, seat, statusDiSpinner, idSeat, status, jadwal, platMobil; ;
 //    String idPesanan;
 //    String idTrip;
 //    String idSeat;
@@ -44,8 +44,9 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
         DetailTripSopirData detailTripSopirData = getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS_SOPIR);
         Nama = detailTripSopirData.getNamaPenumpang();
         statusDiSpinner = detailTripSopirData.getStatus();
-        idPesanan = detailTripSopirData.getIdPesanan();
-        idTrip = detailTripSopirData.getIdTrip();
+        jadwal = detailTripSopirData.getJadwal();
+        platMobil = detailTripSopirData.getPlatMobil();
+        orderNumber = detailTripSopirData.getOrderNumber();
         seat = detailTripSopirData.getIdSeat();
 
         String[] seatString = seat.split(" ");
@@ -101,19 +102,19 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
 //                Toast.makeText(ChangeStatusActivitySopirError.this, Selected, Toast.LENGTH_SHORT).show();
                 switch (Selected){
                     case "Booking":
-                        status = 1;
+                        status = "1";
                         break;
                     case "Picked Up":
-                        status = 2;
+                        status = "2";
                         break;
                     case "On Going":
-                        status = 3;
+                        status = "3";
                         break;
                     case "Arrived":
-                        status = 4;
+                        status = "4";
                         break;
                     case "Cancelled":
-                        status = 5;
+                        status = "5";
                         break;
                 }
 //                Toast.makeText(ChangeStatusActivitySopirError.this, "Status = " +status, Toast.LENGTH_SHORT).show();
@@ -169,7 +170,7 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
 
     private void changeStatus() {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(idPesanan, idTrip, idSeat, status);
+        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idSeat, orderNumber, status);
 //        Toast.makeText(this, "id = " +idPesanan+ ", idTrip = " +idTrip+ ", idSeat = " +idSeat+ ", Status = " +status, Toast.LENGTH_LONG).show();
         changeStatusCall.enqueue(new Callback<ChangeStatus>() {
             @Override
@@ -178,7 +179,7 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
 //                    Toast.makeText(ChangeStatusActivitySopirError.this, "Woyy, bisaaa", Toast.LENGTH_SHORT).show();
                     Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intentBack = new Intent(ChangeStatusActivitySopir.this, DetailTripSopirActivity.class);
-                    intentBack.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, idTrip);
+                    intentBack.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, jadwal);
                     startActivity(intentBack);
                     finish();
                 }else{

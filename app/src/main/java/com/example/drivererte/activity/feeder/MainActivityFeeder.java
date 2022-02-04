@@ -36,7 +36,7 @@ public class MainActivityFeeder extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar progressBar;
-//    SessionManager sessionManagerFeeder;
+    //    SessionManager sessionManagerFeeder;
     SessionManagerFeeder sessionManagerFeeder;
     TextView tvWelcome;
     String idFeeder;
@@ -63,14 +63,14 @@ public class MainActivityFeeder extends AppCompatActivity {
         showTripFeeder(idFeeder);
 
 
-       swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-           @Override
-           public void onRefresh() {
-               swipeRefreshLayout.setRefreshing(true);
-               showTripFeeder(idFeeder);
-               swipeRefreshLayout.setRefreshing(false);
-           }
-       });
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                showTripFeeder(idFeeder);
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
 
 

@@ -11,6 +11,7 @@ import retrofit2.Response;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -121,7 +122,9 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onItemClicked(TripSopirData data) {
                             Intent detailHistoryIntent = new Intent(MainActivity.this, DetailTripSopirActivity.class);
-                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, data.getJadwal());
+                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, (Parcelable) data);
+//                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_MOBIL, data.getPlatMobil());
+
                             startActivity(detailHistoryIntent);
 //                            Toast.makeText(MainActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
                         }

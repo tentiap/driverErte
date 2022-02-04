@@ -21,7 +21,7 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="15sp"
             android:fontFamily="sans-serif-light"
-            android:text="@string/welcome"
+            android:text="Welcome, Sopir Satu!"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="32sp" />

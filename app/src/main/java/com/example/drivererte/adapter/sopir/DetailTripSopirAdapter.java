@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.drivererte.R;
 import com.example.drivererte.activity.sopir.ChangeStatusActivitySopir;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
+import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
 
 import java.util.List;
 

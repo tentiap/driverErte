@@ -40,6 +40,10 @@ public class TripFeederData implements Parcelable {
 	@SerializedName("status")
 	private String status;
 
+
+	@SerializedName("order_number")
+	private int order_number;
+
 	protected TripFeederData(Parcel in) {
 		jadwal = in.readString();
 		idPemesan = in.readString();
@@ -51,6 +55,7 @@ public class TripFeederData implements Parcelable {
 		detailAsal = in.readString();
 		biayaTambahan = in.readString();
 		status = in.readString();
+		order_number = in.readInt();
 	}
 
 	public static final Creator<TripFeederData> CREATOR = new Creator<TripFeederData>() {
@@ -101,6 +106,14 @@ public class TripFeederData implements Parcelable {
 
 	public String getKontak(){
 		return kontak;
+	}
+
+	public int getOrder_number() {
+		return order_number;
+	}
+
+	public void setOrder_number(int order_number) {
+		this.order_number = order_number;
 	}
 
 	public void setNoHp(String noHp){
@@ -221,5 +234,6 @@ public class TripFeederData implements Parcelable {
 		dest.writeString(detailAsal);
 		dest.writeString(biayaTambahan);
 		dest.writeString(status);
+		dest.writeInt(order_number);
 	}
 }

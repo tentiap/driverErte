@@ -2,7 +2,7 @@ package com.example.drivererte.model.tripSopir;
 
 import com.google.gson.annotations.SerializedName;
 
-public class TripSopirData {
+public class TesTripData {
 	@SerializedName("plat_mobil")
 	private String platMobil;
 
@@ -54,8 +54,6 @@ public class TripSopirData {
 
 	public String getPlatMobil(){
 		return platMobil;
-//		return "BA1111LZ";
-
 	}
 
 	public void setCreatedAt(String createdAt){
@@ -87,24 +85,7 @@ public class TripSopirData {
 	}
 
 	public String getJadwal(){
-		String[] tanggal = jadwal.split(" ");
-		String time =  tanggal[1];
-
-		String[] jam = time.split(":");
-		return jam[0]+":"+jam[1];
-	}
-
-	public String getTanggal(){
-		String[] date = jadwal.split(" ");
-		String tgl =  date[0];
-		String[] tanggal = tgl.split("-");
-
-		final String[] monthName = {"January", "February",
-				"March", "April", "May", "June", "July",
-				"August", "September", "October", "November",
-				"December"};
-		Integer months = Integer.parseInt(tanggal[1]);
-		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0];
+		return jadwal;
 	}
 
 	public void setPassword(String password){
@@ -144,20 +125,7 @@ public class TripSopirData {
 	}
 
 	public String getIdKotaAsal(){
-		switch (idKotaAsal){
-			case "K1":
-				idKotaAsal = "Bukittinggi";
-				break;
-			case "K2":
-				idKotaAsal = "Padang";
-				break;
-			case "K3":
-				idKotaAsal = "Pekanbaru";
-				break;
-		}
 		return idKotaAsal;
-//		return "Bukittinggi";
-
 	}
 
 	public void setIdSopir(String idSopir){
@@ -173,20 +141,7 @@ public class TripSopirData {
 	}
 
 	public String getIdKotaTujuan(){
-		switch (idKotaTujuan){
-			case "K1":
-				idKotaTujuan = "Bukittinggi";
-				break;
-			case "K2":
-				idKotaTujuan = "Padang";
-				break;
-			case "K3":
-				idKotaTujuan = "Pekanbaru";
-				break;
-		}
 		return idKotaTujuan;
-//		return "Padang";
-
 	}
 
 	public void setJenisKelamin(String jenisKelamin){

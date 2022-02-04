@@ -1,12 +1,12 @@
-package com.example.drivererte.model.detailTripSopir;
+package com.example.drivererte.model.tripSopir;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class DetailTripSopir{
+public class TesTrip{
 
 	@SerializedName("data")
-	private List<DetailTripSopirData> data;
+	private List<TesTripData> data;
 
 	@SerializedName("message")
 	private String message;
@@ -14,11 +14,11 @@ public class DetailTripSopir{
 	@SerializedName("status")
 	private boolean status;
 
-	public void setData(List<DetailTripSopirData> data){
+	public void setData(List<TesTripData> data){
 		this.data = data;
 	}
 
-	public List<DetailTripSopirData> getData(){
+	public List<TesTripData> getData(){
 		return data;
 	}
 

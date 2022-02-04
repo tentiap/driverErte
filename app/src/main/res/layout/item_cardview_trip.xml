@@ -57,7 +57,7 @@
             android:layout_below="@id/layout_tujuan"
             android:layout_marginTop="6dp"
             android:textSize="14sp"
-            tools:text="jadwal" />
+            tools:text="10 February 2022" />
 
         <TextView
             android:id="@+id/tv_item_jam"
@@ -67,7 +67,7 @@
             android:layout_below="@+id/tv_item_jadwal"
             android:layout_marginTop="6dp"
             android:textSize="14sp"
-            tools:text="13.00" />
+            tools:text="10.00" />
 
         <TextView
             android:id="@+id/tv_item_plat_mobil"
@@ -80,7 +80,7 @@
             android:gravity="right"
             android:textSize="14sp"
             android:textStyle="italic"
-            tools:text="BA0000LZ" />
+            tools:text="BA1111LL" />
 
 
     </RelativeLayout>

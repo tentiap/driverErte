@@ -30,7 +30,7 @@ public class DetailTripSopirActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar progressBar;
-    String idTrip;
+    String idTrip, jadwal, platMobil, data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,9 @@ public class DetailTripSopirActivity extends AppCompatActivity {
         swipeRefreshLayout = findViewById(R.id.swipe_refresh1);
         progressBar = findViewById(R.id.progress_bar1);
 
-        idTrip = getIntent().getStringExtra(EXTRA_TRIP_DATA);
+//        idTrip = getIntent().getStringExtra(EXTRA_TRIP_DATA);
 //        Toast.makeText(DetailTripSopirActivity.this, "ID Trip: " +idTrip, Toast.LENGTH_SHORT).show();
+        data = getIntent().getStringExtra(EXTRA_TRIP_DATA);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -76,7 +77,7 @@ public class DetailTripSopirActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<DetailTripSopir> detailTripSopirCall = apiInterface.detailTripSopirResponse(idTrip);
+        Call<DetailTripSopir> detailTripSopirCall = apiInterface.detailTripSopirResponse(jadwal, platMobil);
         detailTripSopirCall.enqueue(new Callback<DetailTripSopir>() {
             @Override
             public void onResponse(Call<DetailTripSopir> call, Response<DetailTripSopir> response) {
