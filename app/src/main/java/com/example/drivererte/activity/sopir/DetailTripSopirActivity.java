@@ -19,6 +19,7 @@ import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopir;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
+import com.example.drivererte.model.tripSopir.TripSopirData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,19 +44,27 @@ public class DetailTripSopirActivity extends AppCompatActivity {
 
 //        idTrip = getIntent().getStringExtra(EXTRA_TRIP_DATA);
 //        Toast.makeText(DetailTripSopirActivity.this, "ID Trip: " +idTrip, Toast.LENGTH_SHORT).show();
-        data = getIntent().getStringExtra(EXTRA_TRIP_DATA);
+//        data = getIntent().getStringExtra(EXTRA_TRIP_DATA);
+//        jadwal = data.get
+
+        TripSopirData tripSopirData = getIntent().getParcelableExtra(EXTRA_TRIP_DATA);
+        jadwal = tripSopirData.getJadwalOriginal();
+        platMobil = tripSopirData.getPlatMobil();
+        System.out.println("Jadwal= "+jadwal+", Plat= "+platMobil);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Detail Trip " + idTrip);
+//        getSupportActionBar().setTitle("Detail Trip " + idTrip);
+        getSupportActionBar().setTitle("Detail Trip ");
 
-        showTripDetail(idTrip);
+
+        showTripDetail(jadwal, platMobil);
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
-                showTripDetail(idTrip);
+                showTripDetail(jadwal, platMobil);
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -73,7 +82,7 @@ public class DetailTripSopirActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private void showTripDetail(String idTrip) {
+    private void showTripDetail(String jadwal, String platMobil) {
         progressBar.setVisibility(View.VISIBLE);
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);

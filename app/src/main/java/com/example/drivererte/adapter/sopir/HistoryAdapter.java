@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.drivererte.R;
+import com.example.drivererte.model.historySopir.HistorySopir;
 import com.example.drivererte.model.historySopir.HistorySopirData;
 
 import java.util.List;
@@ -56,7 +57,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
 
         HistorySopirData historySopirData = listHistory.get(position);
 
-        holder.tvId.setText("ID Trip: " +historySopirData.getIdTrip());
+//        holder.tvId.setText("ID Trip: " + historySopirData.getIdTrip());
+        holder.tvId.setText(historySopirData.getPlatMobil());
         holder.tvAsal.setText(historySopirData.getIdKotaAsal());
         holder.tvTujuan.setText(historySopirData.getIdKotaTujuan());
         holder.tvJadwal.setText(historySopirData.getTanggal());

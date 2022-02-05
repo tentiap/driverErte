@@ -103,7 +103,7 @@ public class HistoryActivity extends AppCompatActivity {
                     historyAdapter.setOnItemClickCallback(new HistoryAdapter.OnItemClickCallback() {
                         @Override
                         public void onItemClicked(HistorySopirData data) {
-                            Toast.makeText(HistoryActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(HistoryActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
                         }
                     });
 

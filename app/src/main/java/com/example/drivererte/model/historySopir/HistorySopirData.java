@@ -4,17 +4,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class HistorySopirData {
 
+	@SerializedName("merek_mobil")
+	private String merekMobil;
+
 	@SerializedName("jadwal")
 	private String jadwal;
 
 	@SerializedName("updated_at")
 	private String updatedAt;
 
+	@SerializedName("plat_mobil")
+	private String platMobil;
+
 	@SerializedName("id_kota_asal")
 	private String idKotaAsal;
 
-	@SerializedName("id_users_operator")
-	private String idUsersOperator;
+	@SerializedName("id_sopir")
+	private String idSopir;
 
 	@SerializedName("id_kota_tujuan")
 	private String idKotaTujuan;
@@ -22,11 +28,16 @@ public class HistorySopirData {
 	@SerializedName("created_at")
 	private String createdAt;
 
-	@SerializedName("id_trip")
-	private String idTrip;
+	@SerializedName("tarif_trip")
+	private int tarifTrip;
 
-	@SerializedName("id_users_sopir")
-	private String idUsersSopir;
+	public void setMerekMobil(String merekMobil){
+		this.merekMobil = merekMobil;
+	}
+
+	public String getMerekMobil(){
+		return merekMobil;
+	}
 
 	public void setJadwal(String jadwal){
 		this.jadwal = jadwal;
@@ -48,6 +59,14 @@ public class HistorySopirData {
 		return updatedAt;
 	}
 
+	public void setPlatMobil(String platMobil){
+		this.platMobil = platMobil;
+	}
+
+	public String getPlatMobil(){
+		return platMobil;
+	}
+
 	public void setIdKotaAsal(String idKotaAsal){
 		this.idKotaAsal = idKotaAsal;
 	}
@@ -64,14 +83,15 @@ public class HistorySopirData {
 				idKotaAsal = "Pekanbaru";
 				break;
 		}
-		return idKotaAsal;	}
-
-	public void setIdUsersOperator(String idUsersOperator){
-		this.idUsersOperator = idUsersOperator;
+		return idKotaAsal;
 	}
 
-	public String getIdUsersOperator(){
-		return idUsersOperator;
+	public void setIdSopir(String idSopir){
+		this.idSopir = idSopir;
+	}
+
+	public String getIdSopir(){
+		return idSopir;
 	}
 
 	public void setIdKotaTujuan(String idKotaTujuan){
@@ -90,7 +110,8 @@ public class HistorySopirData {
 				idKotaTujuan = "Pekanbaru";
 				break;
 		}
-		return idKotaTujuan;	}
+		return idKotaTujuan;
+	}
 
 	public void setCreatedAt(String createdAt){
 		this.createdAt = createdAt;
@@ -100,23 +121,15 @@ public class HistorySopirData {
 		return createdAt;
 	}
 
-	public void setIdTrip(String idTrip){
-		this.idTrip = idTrip;
+	public void setTarifTrip(int tarifTrip){
+		this.tarifTrip = tarifTrip;
 	}
 
-	public String getIdTrip(){
-		return idTrip;
+	public int getTarifTrip(){
+		return tarifTrip;
 	}
 
-	public void setIdUsersSopir(String idUsersSopir){
-		this.idUsersSopir = idUsersSopir;
-	}
-
-	public String getIdUsersSopir(){
-		return idUsersSopir;
-	}
-
-    public String getTanggal() {
+	public String getTanggal() {
 		String[] date = jadwal.split(" ");
 		String tgl =  date[0];
 		String[] tanggal = tgl.split("-");
@@ -127,5 +140,5 @@ public class HistorySopirData {
 				"December"};
 		Integer months = Integer.parseInt(tanggal[1]);
 		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0];
-    }
+	}
 }

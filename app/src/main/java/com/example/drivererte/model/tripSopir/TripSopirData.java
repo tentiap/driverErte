@@ -1,8 +1,11 @@
 package com.example.drivererte.model.tripSopir;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class TripSopirData {
+public class TripSopirData implements Parcelable {
 	@SerializedName("plat_mobil")
 	private String platMobil;
 
@@ -47,6 +50,36 @@ public class TripSopirData {
 
 	@SerializedName("username")
 	private String username;
+
+	protected TripSopirData(Parcel in) {
+		platMobil = in.readString();
+		createdAt = in.readString();
+		tarifTrip = in.readInt();
+		merekMobil = in.readString();
+		jadwal = in.readString();
+		password = in.readString();
+		kontak = in.readString();
+		updatedAt = in.readString();
+		nama = in.readString();
+		idKotaAsal = in.readString();
+		idSopir = in.readString();
+		idKotaTujuan = in.readString();
+		jenisKelamin = in.readString();
+		email = in.readString();
+		username = in.readString();
+	}
+
+	public static final Creator<TripSopirData> CREATOR = new Creator<TripSopirData>() {
+		@Override
+		public TripSopirData createFromParcel(Parcel in) {
+			return new TripSopirData(in);
+		}
+
+		@Override
+		public TripSopirData[] newArray(int size) {
+			return new TripSopirData[size];
+		}
+	};
 
 	public void setPlatMobil(String platMobil){
 		this.platMobil = platMobil;
@@ -94,6 +127,10 @@ public class TripSopirData {
 		return jam[0]+":"+jam[1];
 	}
 
+	public String getJadwalOriginal(){
+		return jadwal;
+	}
+
 	public String getTanggal(){
 		String[] date = jadwal.split(" ");
 		String tgl =  date[0];
@@ -106,6 +143,8 @@ public class TripSopirData {
 		Integer months = Integer.parseInt(tanggal[1]);
 		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0];
 	}
+
+
 
 	public void setPassword(String password){
 		this.password = password;
@@ -211,5 +250,29 @@ public class TripSopirData {
 
 	public String getUsername(){
 		return username;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(platMobil);
+		dest.writeString(createdAt);
+		dest.writeInt(tarifTrip);
+		dest.writeString(merekMobil);
+		dest.writeString(jadwal);
+		dest.writeString(password);
+		dest.writeString(kontak);
+		dest.writeString(updatedAt);
+		dest.writeString(nama);
+		dest.writeString(idKotaAsal);
+		dest.writeString(idSopir);
+		dest.writeString(idKotaTujuan);
+		dest.writeString(jenisKelamin);
+		dest.writeString(email);
+		dest.writeString(username);
 	}
 }

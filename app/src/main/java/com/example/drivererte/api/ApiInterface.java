@@ -37,12 +37,12 @@ public interface ApiInterface {
             @Path("id_sopir") String id_sopir
     );
 
-    @GET("historySopir/{id_users}")
+    @GET("historySopir/{id_sopir}")
     Call<HistorySopir> historySopirResponse(
             @Path("id_sopir") String id_sopir
     );
 
-    @GET("detailTripSopir/{id_trip}")
+    @GET("detailTripSopir/{jadwal}/{plat_mobil}")
     Call<DetailTripSopir> detailTripSopirResponse(
             @Path("jadwal") String jadwal,
             @Path("plat_mobil") String plat_mobil
