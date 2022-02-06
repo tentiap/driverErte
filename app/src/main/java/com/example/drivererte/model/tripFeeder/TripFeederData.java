@@ -92,6 +92,10 @@ public class TripFeederData implements Parcelable {
 		return tanggal[2] +" "+monthName[months - 1]+ " "+tanggal[0] +" - "+ jam[0]+":"+jam[1] ;
 	}
 
+	public String getJadwalOriginal(){
+		return jadwal;
+	}
+
 	public void setIdPemesan(String idPemesan){
 		this.idPemesan = idPemesan;
 	}

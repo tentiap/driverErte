@@ -40,7 +40,7 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
         TripFeederData tripFeederData = getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS);
         Nama = tripFeederData.getNamaPenumpang();
         statusDiSpinner = tripFeederData.getStatus();
-        jadwal = tripFeederData.getJadwal();
+        jadwal = tripFeederData.getJadwalOriginal();
         platMobil = tripFeederData.getPlatMobil();
         idPemesan = tripFeederData.getIdPemesan();
         seat = tripFeederData.getIdSeat();
@@ -107,6 +107,7 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
                         break;
                 }
 //                Toast.makeText(ChangeStatusActivityFeeder.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
+                System.out.println(jadwal+platMobil+idSeat+orderNumber+status);
                 changeStatus();
             };
 
