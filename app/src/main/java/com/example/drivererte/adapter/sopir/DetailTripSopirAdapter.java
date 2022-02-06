@@ -13,8 +13,6 @@ import android.widget.Toast;
 import com.example.drivererte.R;
 import com.example.drivererte.activity.sopir.ChangeStatusActivitySopir;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
-import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
-
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -67,8 +65,10 @@ public class DetailTripSopirAdapter extends RecyclerView.Adapter<DetailTripSopir
             @Override
             public void onClick(View view) {
 //                Toast.makeText(ctx, "You click button change", Toast.LENGTH_SHORT).show();
+                System.out.println("Status after click button change: "+ detailTripSopirData.getStatus());
                 Intent changeStatusSopir = new Intent(ctx, ChangeStatusActivitySopir.class);
                 changeStatusSopir.putExtra(ChangeStatusActivitySopir.EXTRA_CHANGE_STATUS_SOPIR, detailTripSopirData);
+                System.out.println("Status after intent: "+ detailTripSopirData.getStatus());
                 ctx.startActivity(changeStatusSopir);
             }
         });

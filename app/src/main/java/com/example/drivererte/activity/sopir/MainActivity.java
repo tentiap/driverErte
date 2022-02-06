@@ -122,9 +122,8 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onItemClicked(TripSopirData data) {
                             Intent detailHistoryIntent = new Intent(MainActivity.this, DetailTripSopirActivity.class);
-                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, data);
-//                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_MOBIL, data.getPlatMobil());
-
+                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_JADWAL, data.getJadwalOriginal());
+                            detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_MOBIL, data.getPlatMobil());
                             startActivity(detailHistoryIntent);
 //                            Toast.makeText(MainActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
 //                            System.out.println(data.getJadwal());

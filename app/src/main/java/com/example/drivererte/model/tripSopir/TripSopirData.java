@@ -1,5 +1,6 @@
 package com.example.drivererte.model.tripSopir;
 
+
 import android.os.Parcel;
 import android.os.Parcelable;
 

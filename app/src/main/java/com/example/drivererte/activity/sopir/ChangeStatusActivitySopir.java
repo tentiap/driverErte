@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.example.drivererte.R;
 import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
-//import com.example.drivererte.model.changeStatusError.ChangeStatusError;
 import com.example.drivererte.model.changeStatus.ChangeStatus;
 import com.example.drivererte.model.detailTripSopir.DetailTripSopirData;
 
@@ -30,7 +29,8 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
     Spinner spinnerStatus;
     Button btnUpdate;
     int orderNumber;
-    String Nama, Selected, seat, statusDiSpinner, idSeat, status, jadwal, platMobil; ;
+    String Nama, Selected, seat, statusDiSpinner, idSeat, status, jadwal, platMobil;
+
 //    String idPesanan;
 //    String idTrip;
 //    String idSeat;
@@ -41,9 +41,11 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_status_sopir);
 
-        DetailTripSopirData detailTripSopirData = getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS_SOPIR);
+        DetailTripSopirData detailTripSopirData= getIntent().getParcelableExtra(EXTRA_CHANGE_STATUS_SOPIR);
         Nama = detailTripSopirData.getNamaPenumpang();
+        System.out.println("Nama: "+Nama);
         statusDiSpinner = detailTripSopirData.getStatus();
+        System.out.println("Status di spinner: "+statusDiSpinner);
         jadwal = detailTripSopirData.getJadwal();
         platMobil = detailTripSopirData.getPlatMobil();
         orderNumber = detailTripSopirData.getOrderNumber();
@@ -97,7 +99,6 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
             public void onClick(View v) {
 //                status = 2;
 //                changeStatus();
-
                 Selected = spinnerStatus.getSelectedItem().toString();
 //                Toast.makeText(ChangeStatusActivitySopirError.this, Selected, Toast.LENGTH_SHORT).show();
                 switch (Selected){
@@ -179,7 +180,10 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
 //                    Toast.makeText(ChangeStatusActivitySopirError.this, "Woyy, bisaaa", Toast.LENGTH_SHORT).show();
                     Toast.makeText(ChangeStatusActivitySopir.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intentBack = new Intent(ChangeStatusActivitySopir.this, DetailTripSopirActivity.class);
-                    intentBack.putExtra(DetailTripSopirActivity.EXTRA_TRIP_DATA, jadwal);
+//                    intentBack.putExtra("jadwalChange", jadwal);
+//                    intentBack.putExtra("platMobilChange", platMobil);
+                    intentBack.putExtra(DetailTripSopirActivity.EXTRA_TRIP_JADWAL, jadwal);
+                    intentBack.putExtra(DetailTripSopirActivity.EXTRA_TRIP_MOBIL, platMobil);
                     startActivity(intentBack);
                     finish();
                 }else{

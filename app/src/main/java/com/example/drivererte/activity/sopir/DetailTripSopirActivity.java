@@ -25,7 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DetailTripSopirActivity extends AppCompatActivity {
-    public static final String EXTRA_TRIP_DATA = "extra_trip_data";
+    public static final String EXTRA_TRIP_JADWAL = "extra_trip_jadwal";
+    public static final String EXTRA_TRIP_MOBIL = "extra_trip_mobil";
     private RecyclerView rvDetailTripSopir;
     private List<DetailTripSopirData> list = new ArrayList<>();
 
@@ -47,9 +48,24 @@ public class DetailTripSopirActivity extends AppCompatActivity {
 //        data = getIntent().getStringExtra(EXTRA_TRIP_DATA);
 //        jadwal = data.get
 
-        TripSopirData tripSopirData = getIntent().getParcelableExtra(EXTRA_TRIP_DATA);
-        jadwal = tripSopirData.getJadwalOriginal();
-        platMobil = tripSopirData.getPlatMobil();
+//        TripSopirData tripSopirData = getIntent().getParcelableExtra(EXTRA_TRIP_DATA);
+////        if (tripSopirData.getJadwalOriginal() == null){
+////            jadwal = getIntent().getStringExtra("jadwalChange");
+////        } else {
+////            jadwal = tripSopirData.getJadwalOriginal();
+////        }
+////
+////        if (tripSopirData.getPlatMobil() == null){
+////            platMobil = getIntent().getStringExtra("platMobilChange");
+////        } else {
+////            platMobil = tripSopirData.getPlatMobil();
+////        }
+
+//        jadwal = tripSopirData.getJadwalOriginal();
+        jadwal = getIntent().getStringExtra(EXTRA_TRIP_JADWAL);
+        System.out.println("Jadwal di DetailTripSopirActivity: "+jadwal);
+//        platMobil = tripSopirData.getPlatMobil();
+        platMobil = getIntent().getStringExtra(EXTRA_TRIP_MOBIL);
         System.out.println("Jadwal= "+jadwal+", Plat= "+platMobil);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -54,11 +54,30 @@ public class DetailTripSopirData implements Parcelable {
 		idSeat = in.readString();
 		namaPenumpang = in.readString();
 		detailAsal = in.readString();
-		biayaTambahan = in.readInt();
 		jadwal = in.readString();
 		kontakPemesan = in.readString();
 		jenisKelamin = in.readString();
 		status = in.readString();
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(idPemesan);
+		dest.writeString(platMobil);
+		dest.writeInt(orderNumber);
+		dest.writeString(detailTujuan);
+		dest.writeString(idSeat);
+		dest.writeString(namaPenumpang);
+		dest.writeString(detailAsal);
+		dest.writeString(jadwal);
+		dest.writeString(kontakPemesan);
+		dest.writeString(jenisKelamin);
+		dest.writeString(status);
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
 	}
 
 	public static final Creator<DetailTripSopirData> CREATOR = new Creator<DetailTripSopirData>() {
@@ -86,7 +105,6 @@ public class DetailTripSopirData implements Parcelable {
 	}
 
 	public Object getNoHp(){
-
 		if (noHp == null){
 			return kontakPemesan;
 		}else{
@@ -139,10 +157,10 @@ public class DetailTripSopirData implements Parcelable {
 	}
 
 	public String getDetailAsal(){
-		return "From: " +detailAsal;
+		return "From: "+detailAsal;
 	}
 
-	public void setBiayaTambahan(int biayaTambahan){
+	public void setBiayaTambahan(Object biayaTambahan){
 		this.biayaTambahan = biayaTambahan;
 	}
 
@@ -162,6 +180,7 @@ public class DetailTripSopirData implements Parcelable {
 		return jadwal;
 	}
 
+
 	public void setKontakPemesan(String kontakPemesan){
 		this.kontakPemesan = kontakPemesan;
 	}
@@ -175,7 +194,7 @@ public class DetailTripSopirData implements Parcelable {
 	}
 
 	public String getJenisKelamin(){
-		return "("+jenisKelamin+")";
+		return jenisKelamin;
 	}
 
 	public void setStatus(String status){
@@ -183,37 +202,37 @@ public class DetailTripSopirData implements Parcelable {
 	}
 
 	public String getStatus(){
-		if (status == "1"){
-			return "Booking ";
-		}else if (status == "2"){
-			return "Picked Up";
-		}else if (status == "3"){
-			return "On Going";
-		}else if (status == "4"){
-			return "Arrived";
-		}else{
-			return "Cancelled";
+//		if (status == "1"){
+//			return "Booking ";
+//		}else if (status == "2"){
+//			return "Picked Up";
+//		}else if (status == "3"){
+//			return "On Going";
+//		}else if (status == "4"){
+//			return "Arrived";
+//		}else if (status == "5"){
+//			return "Cancelled";
+//		}else{
+//			return "Unknown Status";
+//		}
+
+		switch (status){
+			case "1":
+				status = "Booking";
+				break;
+			case "2":
+				status = "Picked Up";
+				break;
+			case "3":
+				status = "On Going";
+				break;
+			case "4":
+				status = "Arrived";
+				break;
+			case "5":
+				status = "Cancelled";
+				break;
 		}
-	}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(idPemesan);
-		dest.writeString(platMobil);
-		dest.writeInt(orderNumber);
-		dest.writeString(detailTujuan);
-		dest.writeString(idSeat);
-		dest.writeString(namaPenumpang);
-		dest.writeString(detailAsal);
-//		dest.writeInt(biayaTambahan);
-		dest.writeString(jadwal);
-		dest.writeString(kontakPemesan);
-		dest.writeString(jenisKelamin);
-		dest.writeString(status);
+		return status;
 	}
 }
