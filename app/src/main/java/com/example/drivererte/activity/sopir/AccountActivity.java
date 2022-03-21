@@ -34,8 +34,8 @@ public class AccountActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tv_email);
         tvPhone = findViewById(R.id.tv_phone);
         tvGender = findViewById(R.id.tv_gender);
-//        tvPlat = findViewById(R.id.tv_plat);
-//        tvMerek = findViewById(R.id.tv_merek);
+        tvPlat = findViewById(R.id.tv_plat);
+        tvMerek = findViewById(R.id.tv_merek);
 
         btnLogout = findViewById(R.id.btn_logout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -51,16 +51,16 @@ public class AccountActivity extends AppCompatActivity {
         username = sessionManager.getSopirDetail().get(SessionManager.USERNAME);
         phone = sessionManager.getSopirDetail().get(SessionManager.KONTAK);
         gender = sessionManager.getSopirDetail().get(SessionManager.JENIS_KELAMIN);
-//        plat = sessionManager.getSopirDetail().get(SessionManager.PLAT);
-//        merek = sessionManager.getSopirDetail().get(SessionManager.MEREK);
+        plat = sessionManager.getSopirDetail().get(SessionManager.PLAT);
+        merek = sessionManager.getSopirDetail().get(SessionManager.MEREK);
 
         tvName.setText(name);
         tvUsername.setText(username);
         tvEmail.setText(email);
         tvPhone.setText(phone);
         tvGender.setText(gender);
-//        tvPlat.setText(plat);
-//        tvMerek.setText(merek);
+        tvPlat.setText(plat);
+        tvMerek.setText(merek);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.bn_account);

@@ -58,7 +58,8 @@ public interface ApiInterface {
             @Field("jadwal") String jadwal,
             @Field("plat_mobil") String plat_mobil,
             @Field("id_seat") String id_seat,
-            @Field("order_number") int order_number,
+            @Field("id_pemesan") String id_pemesan,
+//            @Field("order_number") int order_number,
             @Field("status") String status
     );
 }

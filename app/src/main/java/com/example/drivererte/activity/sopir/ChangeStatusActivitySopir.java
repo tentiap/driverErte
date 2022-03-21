@@ -29,7 +29,7 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
     Spinner spinnerStatus;
     Button btnUpdate;
     int orderNumber;
-    String Nama, Selected, seat, statusDiSpinner, idSeat, status, jadwal, platMobil;
+    String Nama, Selected, seat, statusDiSpinner, idSeat, status, jadwal, platMobil, idPemesan;
 
 //    String idPesanan;
 //    String idTrip;
@@ -48,7 +48,8 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
         System.out.println("Status di spinner: "+statusDiSpinner);
         jadwal = detailTripSopirData.getJadwal();
         platMobil = detailTripSopirData.getPlatMobil();
-        orderNumber = detailTripSopirData.getOrderNumber();
+        idPemesan = detailTripSopirData.getIdPemesan();
+//        orderNumber = detailTripSopirData.getOrderNumber();
         seat = detailTripSopirData.getIdSeat();
 
         String[] seatString = seat.split(" ");
@@ -171,7 +172,7 @@ public class ChangeStatusActivitySopir extends AppCompatActivity {
 
     private void changeStatus() {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idSeat, orderNumber, status);
+        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idSeat, idPemesan, status);
 //        Toast.makeText(this, "id = " +idPesanan+ ", idTrip = " +idTrip+ ", idSeat = " +idSeat+ ", Status = " +status, Toast.LENGTH_LONG).show();
         changeStatusCall.enqueue(new Callback<ChangeStatus>() {
             @Override

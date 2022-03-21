@@ -127,7 +127,7 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
 
     private void changeStatus() {
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idSeat, orderNumber, status);
+        Call<ChangeStatus> changeStatusCall = apiInterface.changeStatusResponse(jadwal, platMobil, idSeat, idPemesan, status);
         changeStatusCall.enqueue(new Callback<ChangeStatus>() {
             @Override
             public void onResponse(Call<ChangeStatus> call, Response<ChangeStatus> response) {

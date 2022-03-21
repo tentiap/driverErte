@@ -21,8 +21,8 @@ public class SessionManager {
     public static final String USERNAME = "username";
     public static final String KONTAK = "kontak";
     public static final String JENIS_KELAMIN = "jenis_kelamin";
-//    public static final String PLAT = "plat_mobil";
-//    public static final String MEREK = "merek_mobil";
+    public static final String PLAT = "plat_mobil";
+    public static final String MEREK = "merek_mobil";
     public static final String WILAYAH = "id_kota";
 
 
@@ -41,8 +41,8 @@ public class SessionManager {
         editor.putString(USERNAME, sopir.getUsername());
         editor.putString(KONTAK, sopir.getKontak());
         editor.putString(JENIS_KELAMIN, sopir.getJenisKelamin());
-//        editor.putString(PLAT, sopir.get);
-//        editor.putString(MEREK, sopir.getMerekMobil());
+        editor.putString(PLAT, sopir.getPlatMobil());
+        editor.putString(MEREK, sopir.getMerekMobil());
         editor.commit();
     }
 
@@ -74,8 +74,8 @@ public class SessionManager {
         sopir.put(USERNAME, sharedPreferences.getString(USERNAME, null));
         sopir.put(KONTAK, sharedPreferences.getString(KONTAK, null));
         sopir.put(JENIS_KELAMIN, sharedPreferences.getString(JENIS_KELAMIN, null));
-//        sopir.put(PLAT, sharedPreferences.getString(PLAT, null));
-//        sopir.put(MEREK, sharedPreferences.getString(MEREK, null));
+        sopir.put(PLAT, sharedPreferences.getString(PLAT, null));
+        sopir.put(MEREK, sharedPreferences.getString(MEREK, null));
         return sopir;
     }
 

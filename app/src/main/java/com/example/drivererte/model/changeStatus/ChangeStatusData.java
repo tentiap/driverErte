@@ -13,8 +13,8 @@ public class ChangeStatusData {
 	@SerializedName("plat_mobil")
 	private String platMobil;
 
-	@SerializedName("order_number")
-	private int orderNumber;
+//	@SerializedName("order_number")
+//	private int orderNumber;
 
 	@SerializedName("detail_tujuan")
 	private String detailTujuan;
@@ -73,13 +73,13 @@ public class ChangeStatusData {
 		return platMobil;
 	}
 
-	public void setOrderNumber(int orderNumber){
-		this.orderNumber = orderNumber;
-	}
-
-	public int getOrderNumber(){
-		return orderNumber;
-	}
+//	public void setOrderNumber(int orderNumber){
+//		this.orderNumber = orderNumber;
+//	}
+//
+//	public int getOrderNumber(){
+//		return orderNumber;
+//	}
 
 	public void setDetailTujuan(String detailTujuan){
 		this.detailTujuan = detailTujuan;

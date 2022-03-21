@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginSopirData {
 
+	@SerializedName("plat_mobil")
+	private String platMobil;
+
 	@SerializedName("password")
 	private String password;
 
@@ -30,6 +33,25 @@ public class LoginSopirData {
 
 	@SerializedName("username")
 	private String username;
+
+	public String getMerekMobil() {
+		return merekMobil;
+	}
+
+	public void setMerekMobil(String merekMobil) {
+		this.merekMobil = merekMobil;
+	}
+
+	@SerializedName("merek_mobil")
+	private String merekMobil;
+
+	public String getPlatMobil() {
+		return platMobil;
+	}
+
+	public void setPlatMobil(String platMobil) {
+		this.platMobil = platMobil;
+	}
 
 	public void setPassword(String password){
 		this.password = password;

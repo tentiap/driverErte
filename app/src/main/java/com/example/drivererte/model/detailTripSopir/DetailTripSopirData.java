@@ -16,8 +16,8 @@ public class DetailTripSopirData implements Parcelable {
 	@SerializedName("plat_mobil")
 	private String platMobil;
 
-	@SerializedName("order_number")
-	private int orderNumber;
+//	@SerializedName("order_number")
+//	private int orderNumber;
 
 	@SerializedName("detail_tujuan")
 	private String detailTujuan;
@@ -49,7 +49,7 @@ public class DetailTripSopirData implements Parcelable {
 	protected DetailTripSopirData(Parcel in) {
 		idPemesan = in.readString();
 		platMobil = in.readString();
-		orderNumber = in.readInt();
+//		orderNumber = in.readInt();
 		detailTujuan = in.readString();
 		idSeat = in.readString();
 		namaPenumpang = in.readString();
@@ -64,7 +64,7 @@ public class DetailTripSopirData implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeString(idPemesan);
 		dest.writeString(platMobil);
-		dest.writeInt(orderNumber);
+//		dest.writeInt(orderNumber);
 		dest.writeString(detailTujuan);
 		dest.writeString(idSeat);
 		dest.writeString(namaPenumpang);
@@ -120,13 +120,13 @@ public class DetailTripSopirData implements Parcelable {
 		return platMobil;
 	}
 
-	public void setOrderNumber(int orderNumber){
-		this.orderNumber = orderNumber;
-	}
-
-	public int getOrderNumber(){
-		return orderNumber;
-	}
+//	public void setOrderNumber(int orderNumber){
+//		this.orderNumber = orderNumber;
+//	}
+//
+//	public int getOrderNumber(){
+//		return orderNumber;
+//	}
 
 	public void setDetailTujuan(String detailTujuan){
 		this.detailTujuan = detailTujuan;
