@@ -36,7 +36,6 @@ public class MainActivityFeeder extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar progressBar;
-    //    SessionManager sessionManagerFeeder;
     SessionManagerFeeder sessionManagerFeeder;
     TextView tvWelcome;
     String idFeeder;
@@ -72,8 +71,6 @@ public class MainActivityFeeder extends AppCompatActivity {
             }
         });
 
-
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.bn_home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -82,10 +79,6 @@ public class MainActivityFeeder extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.bn_home:
                         return true;
-//                    case R.id.bn_history:
-//                        startActivity(new Intent(MainActivityFeeder.this, HistoryActivityFeeder.class ));
-//                        overridePendingTransition(0,0);
-//                        return true;
                     case R.id.bn_account:
                         startActivity(new Intent(MainActivityFeeder.this, AccountActivityFeeder.class ));
                         overridePendingTransition(0,0);

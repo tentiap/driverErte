@@ -71,25 +71,11 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
             }else {
                 arrayList.add("Status Baru");
             }
-
-            //Jadi, sekarang gimana caranya supaya mindahin data di api tu ke sini?? Tanpa adapter
-//            Integer arr[] = { 1, 3 };
-//
-//            boolean checkBookedSeat = Arrays.asList(arr).contains(i);
-//
-//            if (checkBookedSeat == true) {
-//                System.out.println("Skip aja ya");
-//            } else {
-//                arrayList.add(String.valueOf(i));
-//            }
         }
 
         spinnerStatus.setAdapter(new ArrayAdapter<>(ChangeStatusActivityFeeder.this, android.R.layout.simple_spinner_dropdown_item,arrayList ));
         spinnerStatus.setSelection(getIndex(spinnerStatus, statusDiSpinner));
-
         btnUpdate = findViewById(R.id.btn_update);
-
-//        Toast.makeText(this, idSeat+ " - "+statusDiSpinner+ " - "+idPesanan+ " - "+idTrip , Toast.LENGTH_SHORT).show();
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,13 +92,10 @@ public class ChangeStatusActivityFeeder extends AppCompatActivity {
                         status = "5";
                         break;
                 }
-//                Toast.makeText(ChangeStatusActivityFeeder.this, "Status = " +Selected+ " | Kode " +status, Toast.LENGTH_SHORT).show();
+
                 System.out.println(jadwal+platMobil+idSeat+orderNumber+status);
                 changeStatus();
             };
-
-//        Toast.makeText(ChangeStatusActivity.this, "Nama : " +Nama+ "Status : " +Status, Toast.LENGTH_SHORT).show();
-//
         });
     }
 

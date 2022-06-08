@@ -52,12 +52,8 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
 
         sessionManager = new SessionManager(MainActivity.this);
-//        sessionManagerFeeder = new SessionManagerFeeder(MainActivity.this);
 
         if (!sessionManager.isLoggedIn()){
-//            if (sessionManagerFeeder.isLoggedInFeeder()){
-//                sessionManagerFeeder.
-//            }
             moveToLogin();
         }
         idUser = sessionManager.getSopirDetail().get(SessionManager.ID_SOPIR);
@@ -125,10 +121,6 @@ public class MainActivity extends AppCompatActivity {
                             detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_JADWAL, data.getJadwalOriginal());
                             detailHistoryIntent.putExtra(DetailTripSopirActivity.EXTRA_TRIP_MOBIL, data.getPlatMobil());
                             startActivity(detailHistoryIntent);
-//                            Toast.makeText(MainActivity.this, "You select " + data.getIdTrip(), Toast.LENGTH_SHORT).show();
-//                            System.out.println(data.getJadwal());
-//                            System.out.println(data.getPlatMobil());
-
                         }
                     });
 

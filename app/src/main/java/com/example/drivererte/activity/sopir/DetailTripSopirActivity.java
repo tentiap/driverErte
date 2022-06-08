@@ -42,35 +42,13 @@ public class DetailTripSopirActivity extends AppCompatActivity {
         rvDetailTripSopir = findViewById(R.id.rv_detail_trip_sopir);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh1);
         progressBar = findViewById(R.id.progress_bar1);
-
-//        idTrip = getIntent().getStringExtra(EXTRA_TRIP_DATA);
-//        Toast.makeText(DetailTripSopirActivity.this, "ID Trip: " +idTrip, Toast.LENGTH_SHORT).show();
-//        data = getIntent().getStringExtra(EXTRA_TRIP_DATA);
-//        jadwal = data.get
-
-//        TripSopirData tripSopirData = getIntent().getParcelableExtra(EXTRA_TRIP_DATA);
-////        if (tripSopirData.getJadwalOriginal() == null){
-////            jadwal = getIntent().getStringExtra("jadwalChange");
-////        } else {
-////            jadwal = tripSopirData.getJadwalOriginal();
-////        }
-////
-////        if (tripSopirData.getPlatMobil() == null){
-////            platMobil = getIntent().getStringExtra("platMobilChange");
-////        } else {
-////            platMobil = tripSopirData.getPlatMobil();
-////        }
-
-//        jadwal = tripSopirData.getJadwalOriginal();
         jadwal = getIntent().getStringExtra(EXTRA_TRIP_JADWAL);
         System.out.println("Jadwal di DetailTripSopirActivity: "+jadwal);
-//        platMobil = tripSopirData.getPlatMobil();
         platMobil = getIntent().getStringExtra(EXTRA_TRIP_MOBIL);
         System.out.println("Jadwal= "+jadwal+", Plat= "+platMobil);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setTitle("Detail Trip " + idTrip);
         getSupportActionBar().setTitle("Detail Trip ");
 
 

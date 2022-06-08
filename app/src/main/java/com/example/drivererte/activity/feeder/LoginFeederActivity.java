@@ -26,7 +26,6 @@ public class LoginFeederActivity extends AppCompatActivity implements View.OnCli
     Button btnLogin;
     String Email, Password;
     ApiInterface apiInterface;
-//    SessionManager sessionManager;
     SessionManagerFeeder sessionManagerFeeder;
 
     @Override

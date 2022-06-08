@@ -20,8 +20,6 @@ import com.example.drivererte.api.ApiClient;
 import com.example.drivererte.api.ApiInterface;
 import com.example.drivererte.model.loginSopir.LoginSopir;
 import com.example.drivererte.model.loginSopir.LoginSopirData;
-//import com.example.drivererte.model.loginSopir.LoginSopirOld;
-//import com.example.drivererte.model.loginSopir.LoginSopirDataOld;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,29 +67,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onResponse(Call<LoginSopir> call, Response<LoginSopir> response) {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()){
-
-//                    System.out.println("LoginSopir()");
                     sessionManager = new SessionManager(LoginActivity.this);
                     LoginSopirData loginSopirData = response.body().getLoginSopirData();
                     sessionManager.createLoginSession(loginSopirData);
-//                    System.out.println("SessionManager()");
 
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intentLogin = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intentLogin);
-//                    System.out.println("IntentLogin()");
                     finish();
 
                 }else{
                     Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                    System.out.println("Gagal Api()");
                 }
             }
 
             @Override
             public void onFailure(Call<LoginSopir> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-//                System.out.println(t.getLocalizedMessage());
             }
         });
     }
