@@ -92,7 +92,7 @@ public class HistoryActivity extends AppCompatActivity {
                 if(response.body() != null && response.isSuccessful() && response.body().isStatus()) {
                     rvHistory.setLayoutManager(new LinearLayoutManager(HistoryActivity.this));
                     String message = response.body().getMessage();
-                    Toast.makeText(HistoryActivity.this, message, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(HistoryActivity.this, message, Toast.LENGTH_SHORT).show();
                     listData = response.body().getData();
 
                     HistoryAdapter historyAdapter = new HistoryAdapter(HistoryActivity.this, listData);
